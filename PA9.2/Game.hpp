@@ -10,16 +10,20 @@
 class Game
 {
 public:
+	// Constructors and Destructors
 	Game();
 	virtual ~Game();
 
+	// The main loop of our game
 	void runGame();
+
+	// Other Functions
 	void update();
 	void render();
-
 	bool isRunning() const;
 
 private:
+	// Attributes
 	sf::Window* window;
 
 	// Init Functions

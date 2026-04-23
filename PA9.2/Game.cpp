@@ -6,12 +6,14 @@ Game::Game()
 	initWindow();
 }
 
+// Put functions that are used to help initialize the window
 void Game::initWindow()
 {
     this->window = new sf::RenderWindow(sf::VideoMode({ 1000, 800 }), "Game.io", sf::Style::Titlebar | sf::Style::Close);
     window->setFramerateLimit(60);
 }
 
+// Same thing as initWindow but for variables.
 void Game::initVariables()
 {
     this->window = nullptr;
@@ -33,9 +35,9 @@ void Game::runGame()
             {
                 window->close();
             }
-            update();
-            render();
         }
+        update();
+        render();
     }
 }
 
