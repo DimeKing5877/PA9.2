@@ -24,7 +24,7 @@ public:
 
 private:
 	// Attributes
-	sf::Window* window;
+	sf::RenderWindow* window;
 
 	// Init Functions
 	void initWindow();

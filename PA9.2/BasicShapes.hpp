@@ -17,7 +17,7 @@ public:
 	void setArea(double newArea);
 	void setColor(const sf::Color& newColor);
 
-	void draw(sf::RenderWindow& window);
+	void draw(sf::RenderWindow*& window);
 
 protected:
 	sf::CircleShape shape;
