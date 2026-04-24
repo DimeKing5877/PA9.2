@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicShapes.cpp" />
+    <ClCompile Include="CharEntity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundCLass.hpp" />
     <ClInclude Include="BasicShapes.hpp" />
+    <ClInclude Include="CharEntity.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="MainHeader.hpp" />
   </ItemGroup>

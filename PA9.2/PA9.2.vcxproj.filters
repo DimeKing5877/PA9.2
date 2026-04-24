@@ -24,6 +24,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CharEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicShapes.hpp">
@@ -36,6 +39,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainHeader.hpp">
+    <ClInclude Include="CharEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
