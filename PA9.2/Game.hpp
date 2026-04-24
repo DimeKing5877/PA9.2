@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "Time.hpp"
+#include "MainHeader.hpp"
+class BackGround;
 
 class Game
 {
@@ -22,6 +24,7 @@ private:
 	sf::VideoMode vm;
 	sf::RenderWindow* window;
 	Time deltaTime;
+	BackGround* background;
 
 	// Init Functions
 	void initWindow();

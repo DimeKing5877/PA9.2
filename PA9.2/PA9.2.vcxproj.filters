@@ -25,6 +25,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Time.cpp">
+    <ClCompile Include="CharEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,6 +37,11 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Time.hpp">
+    <ClInclude Include="BackGroundCLass.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHeader.hpp">
+    <ClInclude Include="CharEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

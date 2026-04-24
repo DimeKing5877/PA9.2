@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "BackGroundCLass.hpp"
 
 Game::Game()
 {
@@ -14,6 +15,7 @@ void Game::initVariables()
 	this->windowTitle = "Tanks Alot";
 	this->vm = sf::VideoMode({windowWidth, windowHeight});
     this->window = nullptr;
+    this->background = nullptr;
 }
 
 // Inits the window using the variables defined in initVariables.
@@ -26,6 +28,7 @@ void Game::initWindow()
 
 Game::~Game()
 {
+    delete background;
     delete window;
 }
 
