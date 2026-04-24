@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include "BackGroundCLass.hpp"
+#include "BackGroundClass.hpp"
 
 Game::Game()
 {
@@ -61,10 +61,19 @@ void Game::update()
 
 void Game::render()
 {
-    window->clear();
+    window->clear(sf::Color::Black);
 
-	// Draw functions go here
+    // Lazy initialize background (once window exists)
+    if (!background) {
+        background = new BackGround();
+    }
 
+    // Draw background scaled to window
+    if (background) {
+        background->draw(window);
+    }
+
+    // Display everything
     window->display();
 }
 
