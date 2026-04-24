@@ -54,7 +54,7 @@ void Shape::setColor(const sf::Color& newColor)
 	shape.setFillColor(newColor);
 }
 
-void Shape::draw(sf::RenderWindow& window)
+void Shape::draw(sf::RenderWindow*& window)
 {
-	window.draw(shape);
+	window->draw(shape);
 }

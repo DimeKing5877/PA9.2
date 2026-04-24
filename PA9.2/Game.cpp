@@ -6,19 +6,23 @@ Game::Game()
 	initWindow();
 }
 
-// Put functions that are used to help initialize the window
+// Inits variables for the window.
+void Game::initVariables()
+{
+	this->windowWidth = 1000;
+    this->windowHeight = 800;
+	this->windowTitle = "Tanks Alot";
+	this->vm = sf::VideoMode({windowWidth, windowHeight});
+    this->window = nullptr;
+}
+
+// Inits the window using the variables defined in initVariables.
 void Game::initWindow()
 {
-    this->window = new sf::RenderWindow(sf::VideoMode({ 1000, 800 }), "Game.io", sf::Style::Titlebar | sf::Style::Close);
+    this->window = new sf::RenderWindow(vm, windowTitle, sf::Style::Titlebar | sf::Style::Close);
     window->setFramerateLimit(60);
 }
 
-// Same thing as initWindow but for variables.
-void Game::initVariables()
-{
-    this->window = nullptr;
-
-}
 
 Game::~Game()
 {
@@ -29,26 +33,36 @@ void Game::runGame()
 {
     while (isRunning())
     {
-        while (const std::optional event = window->pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window->close();
-            }
-        }
         update();
         render();
     }
 }
 
+void Game::pollEvents()
+{
+    while (const std::optional event = window->pollEvent())
+    {
+        if (event->is<sf::Event::Closed>())
+        {
+            window->close();
+        }
+    }
+}
+
 void Game::update()
 {
-	// Game Logic Go Here
+    pollEvents();
+    // Game Logic Goes Here
+	deltaTime.getDeltaTime();
 }
 
 void Game::render()
 {
-    // Fill in with probably the color of the background we want.
+    window->clear();
+
+	// Draw functions go here
+
+    window->display();
 }
 
 bool Game::isRunning() const
