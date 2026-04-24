@@ -35,6 +35,10 @@
     <ClInclude Include="Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BackGroundCLass.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHeader.hpp">
     <ClInclude Include="CharEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

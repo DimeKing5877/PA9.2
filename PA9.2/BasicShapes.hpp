@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include <SFML/Graphics.hpp>
+#include "MainHeader.hpp"
 
 // Creates a shape based of the given number of sides and stores attributes with the basic call functions
 class Shape
@@ -17,7 +16,7 @@ public:
 	void setArea(double newArea);
 	void setColor(const sf::Color& newColor);
 
-	void draw(sf::RenderWindow*& window);
+	virtual void draw(sf::RenderWindow*& window);
 
 protected:
 	sf::CircleShape shape;
