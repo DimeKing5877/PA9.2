@@ -1,11 +1,6 @@
 #pragma once
-#include <iostream>
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
+#include "MainHeader.hpp"
+class BackGround;
 
 class Game
 {
@@ -25,6 +20,7 @@ public:
 private:
 	// Attributes
 	sf::RenderWindow* window;
+	BackGround* background;
 
 	// Init Functions
 	void initWindow();

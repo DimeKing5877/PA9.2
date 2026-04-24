@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "BackGroundCLass.hpp"
 
 Game::Game()
 {
@@ -17,11 +18,13 @@ void Game::initWindow()
 void Game::initVariables()
 {
     this->window = nullptr;
+    this->background = nullptr;
 
 }
 
 Game::~Game()
 {
+    delete background;
     delete window;
 }
 
@@ -48,7 +51,21 @@ void Game::update()
 
 void Game::render()
 {
-    // Fill in with probably the color of the background we want.
+    // Clear the window
+    window->clear(sf::Color::Black);
+
+    // Lazy initialize background (once window exists)
+    if (!background) {
+        background = new BackGround();
+    }
+
+    // Draw background scaled to window
+    if (background) {
+        background->draw(window);
+    }
+
+    // Display everything
+    window->display();
 }
 
 bool Game::isRunning() const
