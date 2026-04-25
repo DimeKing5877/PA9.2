@@ -145,6 +145,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="WeaponEntityClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Time.hpp" />
     <ClInclude Include="MainHeader.hpp" />
+    <ClInclude Include="WeaponEntityClass.hpp" />
     <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
