@@ -55,5 +55,5 @@ void Shape::setColor(const sf::Color& newColor)
 }
 void Shape::draw(sf::RenderWindow *& window)
 {
-	window->display();
+	window->draw(shape);
 }
