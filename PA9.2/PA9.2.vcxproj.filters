@@ -1,18 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="BasicShapes.cpp" />
-    <ClCompile Include="CharEntity.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="BasicShapes.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="CharEntity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponEntityClass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackGroundClass.hpp" />
-    <ClInclude Include="BasicShapes.hpp" />
-    <ClInclude Include="CharEntity.hpp" />
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="Time.hpp" />
-    <ClInclude Include="MainHeader.hpp" />
+    <ClInclude Include="BackGroundClass.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicShapes.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CharEntity.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHeader.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponEntityClass.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{1b089245-b276-4c56-8808-556fe72dbf40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{b96272b8-0d44-4d02-adf1-929b3a36f831}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

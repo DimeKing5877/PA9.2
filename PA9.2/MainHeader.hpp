@@ -6,5 +6,9 @@
 #include <SFML/Network.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
-// Core headers only; specific shape headers include what they need to avoid circular includes
+
+#include "BasicShapes.hpp"
 #include "BackGroundCLass.hpp"
+#include "WeaponEntityClass.hpp"
+
+
