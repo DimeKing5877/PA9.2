@@ -144,12 +144,14 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackGroundCLass.hpp" />
+    <ClInclude Include="BackGroundClass.hpp" />
     <ClInclude Include="BasicShapes.hpp" />
     <ClInclude Include="CharEntity.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Time.hpp" />
     <ClInclude Include="MainHeader.hpp" />
     <ClInclude Include="Player.hpp" />
   </ItemGroup>

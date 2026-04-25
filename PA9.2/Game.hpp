@@ -1,4 +1,9 @@
 #pragma once
+#include <iostream>
+
+#include <SFML/Graphics.hpp>
+
+#include "Time.hpp"
 #include "MainHeader.hpp"
 #include "Player.hpp"
 #include "BackGroundCLass.hpp"
@@ -12,19 +17,18 @@ class Game
 public:
 	// Constructors and Destructors
 	Game();
-	virtual ~Game();
+	~Game();
 
 	// The main loop of our game
 	void runGame();
 
-	// Other Functions
-	void update();
-	void render();
-	bool isRunning() const;
-
 private:
-	// Attributes
+	unsigned int windowWidth;
+	unsigned int windowHeight;
+	std::string windowTitle;
+	sf::VideoMode vm;
 	sf::RenderWindow* window;
+	Time deltaTime;
 	BackGround* background;
 
 	Player player;//the player
@@ -32,4 +36,10 @@ private:
 	// Init Functions
 	void initWindow();
 	void initVariables();
+
+	// Other Functions
+	void pollEvents();
+	void update();
+	void render();
+	bool isRunning() const;
 };
