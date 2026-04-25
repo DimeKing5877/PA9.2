@@ -5,6 +5,7 @@ Game::Game()
 {
 	initVariables();
 	initWindow();
+    player;
 }
 
 // Inits variables for the window.
@@ -36,6 +37,14 @@ void Game::runGame()
 {
     while (isRunning())
     {
+        while (const std::optional event = window->pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())
+            {
+                window->close();
+            }
+        }
+        update();//calls all logic for the game
         update();
         render();
     }
@@ -54,9 +63,24 @@ void Game::pollEvents()
 
 void Game::update()
 {
-    pollEvents();
-    // Game Logic Goes Here
-	deltaTime.getDeltaTime();
+	// Game Logic Go Here
+
+    //player updates
+    sf::Vector2i mousePosition = sf::Mouse::getPosition();
+    player.pointToMouse(mousePosition);
+    player.playerMove();
+
+
+
+
+    //enemys updates 
+
+
+
+
+
+
+
 }
 
 void Game::render()
@@ -72,9 +96,9 @@ void Game::render()
     if (background) {
         background->draw(window);
     }
-
+    player.draw(window);
     // Display everything
-    window->display();
+   window->display();
 }
 
 bool Game::isRunning() const

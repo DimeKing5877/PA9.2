@@ -5,6 +5,11 @@
 
 #include "Time.hpp"
 #include "MainHeader.hpp"
+#include "Player.hpp"
+#include "BackGroundCLass.hpp"
+
+
+class player;
 class BackGround;
 
 class Game
@@ -25,6 +30,8 @@ private:
 	sf::RenderWindow* window;
 	Time deltaTime;
 	BackGround* background;
+
+	Player player;//the player
 
 	// Init Functions
 	void initWindow();
