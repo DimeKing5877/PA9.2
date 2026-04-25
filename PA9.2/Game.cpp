@@ -1,16 +1,16 @@
 #include "Game.hpp"
-#include "BackGroundCLass.hpp"
 
 Game::Game()
 {
 	initVariables();
 	initWindow();
+    player;
 }
 
 // Put functions that are used to help initialize the window
 void Game::initWindow()
 {
-    this->window = new sf::RenderWindow(sf::VideoMode({ 1000, 800 }), "Game.io", sf::Style::Titlebar | sf::Style::Close);
+    this->window = new sf::RenderWindow(sf::VideoMode({ WINDOW_WIDTH, WINDOW_LENGTH }), "Game.io", sf::Style::Titlebar | sf::Style::Close);
     window->setFramerateLimit(60);
 }
 
@@ -39,7 +39,7 @@ void Game::runGame()
                 window->close();
             }
         }
-        update();
+        update();//calls all logic for the game
         render();
     }
 }
@@ -47,6 +47,23 @@ void Game::runGame()
 void Game::update()
 {
 	// Game Logic Go Here
+
+    //player updates
+    sf::Vector2i mousePosition = sf::Mouse::getPosition();
+    player.pointToMouse(mousePosition);
+    player.playerMove();
+
+
+
+
+    //enemys updates 
+
+
+
+
+
+
+
 }
 
 void Game::render()
@@ -63,9 +80,9 @@ void Game::render()
     if (background) {
         background->draw(window);
     }
-
+    player.draw(window);
     // Display everything
-    window->display();
+   window->display();
 }
 
 bool Game::isRunning() const

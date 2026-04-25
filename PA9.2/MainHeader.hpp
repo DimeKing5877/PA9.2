@@ -8,3 +8,6 @@
 #include <SFML/Window.hpp>
 // Core headers only; specific shape headers include what they need to avoid circular includes
 #include "BackGroundCLass.hpp"
+
+#define WINDOW_WIDTH 1000
+#define WINDOW_LENGTH 800

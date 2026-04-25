@@ -143,6 +143,7 @@
     <ClCompile Include="CharEntity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundCLass.hpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="CharEntity.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="MainHeader.hpp" />
+    <ClInclude Include="Player.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
