@@ -1,5 +1,6 @@
 #pragma once
 #include "MainHeader.hpp"
+#include "BasicShapes.hpp"
 
 class BackGround {
 private:

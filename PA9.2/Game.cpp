@@ -96,7 +96,14 @@ void Game::render()
     if (background) {
         background->draw(window);
     }
+
+
+	//all draw functions go here
     player.draw(window);
+    cannonWeapon cannon(50, 20, 50, 4, 0, sf::Color::Green, 500, 500);
+	cannon.draw(window);
+
+
     // Display everything
    window->display();
 }

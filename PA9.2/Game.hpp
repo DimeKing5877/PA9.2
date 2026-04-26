@@ -7,6 +7,7 @@
 #include "MainHeader.hpp"
 #include "Player.hpp"
 #include "BackGroundCLass.hpp"
+#include "WeaponEntityClass.hpp"
 
 
 class player;

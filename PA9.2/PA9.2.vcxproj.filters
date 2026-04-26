@@ -16,7 +16,12 @@
     <ClCompile Include="Time.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="WeaponEntityClass.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponEntityClass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp">
@@ -38,6 +43,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="WeaponEntityClass.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
