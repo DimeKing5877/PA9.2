@@ -35,6 +35,10 @@ private:
 
 	Player player;//the player
 	Grunt grunt;//generic enemy
+	//need an array/list of all enemys
+
+
+
 
 	// Init Functions
 	void initWindow();
@@ -45,4 +49,11 @@ private:
 	void update();
 	void render();
 	bool isRunning() const;
+
+
+
+	//hit Detection
+	void playerIsDamaged();
+	void damagedAnEnemy();
+
 };

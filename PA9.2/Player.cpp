@@ -3,6 +3,13 @@
 Player::~Player()
 {}
 
+bool Player::vulnrable(){
+    return isVulnrable;
+}
+void Player::setVulnrabile(const bool vulnrable){
+    isVulnrable = vulnrable;
+}
+
 void Player::pointToMouse(const sf::Vector2f mousePosition)
 {
     sf::Vector2f direction = mousePosition - shape.getPosition();
@@ -29,6 +36,10 @@ void Player::playerMove()
     {
         shape.move({ float( moveSpeed),0.f });
     }
+
+
+
+    //update whepon position 
 
 
 }
