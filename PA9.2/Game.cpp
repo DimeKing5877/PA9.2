@@ -45,7 +45,6 @@ void Game::runGame()
             }
         }
         update();//calls all logic for the game
-        update();
         render();
     }
 }
@@ -67,7 +66,11 @@ void Game::update()
 
     //player updates
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
-    player.pointToMouse(mousePosition);
+
+
+    sf::Vector2i mousePixel = sf::Mouse::getPosition(*window);
+    sf::Vector2f mouseWorld = window->mapPixelToCoords(mousePixel);
+    player.pointToMouse(mouseWorld);
     player.playerMove();
 
 
@@ -96,7 +99,15 @@ void Game::render()
     if (background) {
         background->draw(window);
     }
+
+
+
+
+
     player.draw(window);
+
+
+
     // Display everything
    window->display();
 }

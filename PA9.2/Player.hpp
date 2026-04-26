@@ -14,7 +14,7 @@ public:
 
 	//controls
 
-	void pointToMouse(const sf::Vector2i mousePosition);
+	void pointToMouse(const sf::Vector2f mousePosition);
 	void playerMove();
 
 
