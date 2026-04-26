@@ -8,6 +8,7 @@
 #include "Player.hpp"
 #include "BackGroundCLass.hpp"
 #include "WeaponEntityClass.hpp"
+#include "BasicEnemies.hpp"
 
 
 class player;
@@ -29,10 +30,11 @@ private:
 	std::string windowTitle;
 	sf::VideoMode vm;
 	sf::RenderWindow* window;
-	Time deltaTime;
+	Time time;
 	BackGround* background;
 
 	Player player;//the player
+	Grunt grunt;//generic enemy
 
 	// Init Functions
 	void initWindow();

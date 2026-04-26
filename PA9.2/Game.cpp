@@ -62,6 +62,7 @@ void Game::pollEvents()
 
 void Game::update()
 {
+    time.nextDeltaTime();
 	// Game Logic Go Here
 
     //player updates
@@ -77,9 +78,7 @@ void Game::update()
 
 
     //enemys updates 
-
-
-
+	grunt.update(player.shape.getPosition(), time.getDeltaTime());
 
 
 
@@ -105,7 +104,7 @@ void Game::render()
     player.draw(window);
     cannonWeapon cannon(50, 20, 50, 4, 0, sf::Color::Green, 500, 500);
 	cannon.draw(window);
-
+	grunt.draw(window);
 
     // Display everything
    window->display();

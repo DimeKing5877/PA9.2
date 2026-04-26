@@ -22,6 +22,7 @@
     <ClCompile Include="WeaponEntityClass.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp">
@@ -46,6 +47,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Player.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicEnemies.hpp">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

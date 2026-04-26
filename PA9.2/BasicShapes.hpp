@@ -5,6 +5,7 @@
 class Shape
 {
 public:
+	sf::CircleShape shape;//is any shape, needs a raidus and number of sides
 	Shape(const int newNumOfSides, const double newArea, const sf::Color& newColor);
 	virtual ~Shape();
 
@@ -19,7 +20,7 @@ public:
 	virtual void draw(sf::RenderWindow*& window);//needs to be overwriten
 
 protected:
-	sf::CircleShape shape;//is any shape, needs a raidus and number of sides
+	
 	int numOfSides;
 	double area;//raidus for shape
 };

@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="BasicShapes.cpp" />
     <ClCompile Include="CharEntity.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -149,8 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp" />
+    <ClInclude Include="BasicEnemies.hpp" />
     <ClInclude Include="BasicShapes.hpp" />
     <ClInclude Include="CharEntity.hpp" />
+    <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Time.hpp" />
     <ClInclude Include="MainHeader.hpp" />
