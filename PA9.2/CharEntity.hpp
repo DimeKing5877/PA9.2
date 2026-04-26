@@ -20,13 +20,17 @@ public:
 	int getHealth();
 
 	//setters
-	void setMoveSpeed(double newSpeed);
-	void setHealth(int newHealth);
+	void setMoveSpeed(const double& newSpeed);
+	void setHealth(const int& newHealth);
 
 
-	void updateHealth(int damage);//updates the heath with damage
+	void updateHealth(const int& damage);//updates the heath with damage
 	bool isDead();//checks if the entity is dead or not with health
 	void dies();//precodition: the entity is Dead.
+
+	bool checkHit(const sf::FloatRect& otherBox);
+
+
 
 protected:
 	double moveSpeed;//the speed the entitys move
