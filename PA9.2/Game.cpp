@@ -114,7 +114,7 @@ void Game::render()
 
 	//all draw functions go here
     player.draw(window);
-    cannonWeapon cannon(50, 20, 50, 4, 0, sf::Color::Green, 500, 500);
+    cannonWeapon cannon;
 	cannon.draw(window);
 	grunt.draw(window);
 
