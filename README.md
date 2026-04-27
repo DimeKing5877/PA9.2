@@ -1,4 +1,4 @@
-Contributors: Dennis Carpenter, Derrek Carpenter, Fox William, Nahom 
+Contributors: Dennis Carpenter, Derrek Carpenter, Fox William, Nahom Tadesse
 
 PA9: Project: Game: Tanks alot
 
