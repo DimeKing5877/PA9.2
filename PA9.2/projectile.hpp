@@ -5,7 +5,7 @@
 #include <cmath>
 #include <algorithm>
 
-class Projectile : public Shape {
+class Projectile {
 private:
     sf::CircleShape bullet;
     sf::Vector2f velocity;

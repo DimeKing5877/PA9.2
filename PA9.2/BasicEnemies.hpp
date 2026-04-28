@@ -8,10 +8,10 @@
 // Examples of different melee enemies
 
 // The light version of the melee enemy, fast but low health;
-class Pest : public Enemy
+class Drone : public Enemy
 {
 public:
-	Pest(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Yellow)
+	Drone(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 3, const double newArea = 12, const sf::Color& newColor = sf::Color::Yellow)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
@@ -19,14 +19,22 @@ public:
 class Grunt : public Enemy
 {
 public:
-	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Red)
+	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 4, const double newArea = 20, const sf::Color& newColor = sf::Color::Red)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
-// The heavy melee enemy, slow but high health.
+// The heavy melee enemy, a little slow but high health.
 class Brute : public Enemy
 {
 public:
-	Brute(const double newMoveSpeed = 0.75, const int newHealth = 5, const int newNumOfSides = 4, const double newArea = 20, const sf::Color& newColor = sf::Color::Magenta)
+	Brute(const double newMoveSpeed = 0.75, const int newHealth = 5, const int newNumOfSides = 5, const double newArea = 40, const sf::Color& newColor = sf::Color::Magenta)
+		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
+};
+
+// The tank melee enemy, very slow but can take a lot of damage, the most dangerous enemy
+class Hunter : public Enemy
+{
+public:
+	Hunter(const double newMoveSpeed = 0.5, const int newHealth = 7, const int newNumOfSides = 6, const double newArea = 50, const sf::Color& newColor = sf::Color::Cyan)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };

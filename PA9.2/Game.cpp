@@ -37,13 +37,7 @@ void Game::runGame()
 {
     while (isRunning())
     {
-        while (const std::optional event = window->pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window->close();
-            }
-        }
+        pollEvents();
         update();//calls all logic for the game
         render();
     }
@@ -83,6 +77,7 @@ void Game::update()
 
     //enemys updates 
 	grunt.update(player.shape.getPosition(), time.getDeltaTime());
+    enemySpawner.update(time.getDeltaTime());
 
 
 
