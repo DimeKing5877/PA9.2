@@ -1,6 +1,5 @@
 #pragma once
 #include "BasicShapes.hpp"
-//#include  
 #define BASE_SPEED 2
 
 //parent to player and enemy classes

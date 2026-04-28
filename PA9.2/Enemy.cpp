@@ -13,7 +13,7 @@ void Enemy::update(const sf::Vector2f playerPosition, float deltatime)
 	if (distance > 1.0f)
 	{
 		direction /= distance;
-		shape.move(direction * static_cast<float>(moveSpeed) * deltatime);
+		shape.move(direction * static_cast<float>(moveSpeed) * deltatime); 
 		float angle = std::atan2(direction.y, direction.x);
 		shape.setRotation(sf::radians(angle));
 	}
