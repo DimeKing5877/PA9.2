@@ -77,8 +77,8 @@ void Game::update()
     sf::Vector2f mouseWorld = window->mapPixelToCoords(mousePixel);
     player.pointToMouse(mouseWorld);
     player.playerMove();
-
-
+    player.setWeaponSlot();
+    player.shootGun();
 
 
     //enemys updates 
@@ -180,3 +180,13 @@ void Game::damagedAnEnemy(){
     
     */
 }
+
+void Game::generateEnemy()
+{}
+
+
+
+
+
+
+
