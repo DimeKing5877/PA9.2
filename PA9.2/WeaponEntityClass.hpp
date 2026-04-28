@@ -148,6 +148,9 @@ public:
 };
   
   class lazzerWeapon : public weaponEntityClass {
+  protected:
+	  sf::Vector2f Nose; //cordnent were the projectile spawn
+  public:
     	lazzerWeapon(const float height = 20, const float bottomWidth = 10, const float topWidth = 20, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({ 0, height / 2 });
