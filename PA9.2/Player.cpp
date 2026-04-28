@@ -36,6 +36,14 @@ void Player::setWeaponSlot(){
 }
 
 
+int Player::getBodyDamage(){
+    return bodyDamage;
+}
+void Player::setBodyDamage(const int newBodyDamage){
+    bodyDamage = newBodyDamage;
+}
+
+
 
 
 
@@ -47,23 +55,23 @@ void Player::pointToMouse(const sf::Vector2f mousePosition)
     rotateWeapons(sf::radians(angle + (3.141 / 2)));
 }
 
-void Player::playerMove()
+void Player::playerMove(float deltatime)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && (this->shape.getPosition().y > 0))
     {
-        shape.move({0.f,float(0-moveSpeed)});
+        shape.move({0.f,float(0-moveSpeed)* deltatime });
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && (this->shape.getPosition().x > 0))
     {
-        shape.move({ float(0-moveSpeed),0.f });
+        shape.move({ float(0-moveSpeed)* deltatime,0.f });
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && (this->shape.getPosition().y < WINDOW_LENGTH))
     {
-        shape.move(sf::Vector2f{ 0.f,float(moveSpeed)});
+        shape.move(sf::Vector2f{ 0.f,float(moveSpeed)* deltatime });
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && (this->shape.getPosition().x < WINDOW_WIDTH))
     {
-        shape.move({ float( moveSpeed),0.f });
+        shape.move({ float(moveSpeed)* deltatime,0.f });
     }
 
     //update weapon position 
@@ -122,19 +130,19 @@ void Player::rotateWeapons(sf::Angle rotation){
 void Player::shootGun(){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) || sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
         if (weaponSlot == 1) {
-            std::cout << "cannon 1" << std::endl;
+           // std::cout << "cannon 1" << std::endl;
         }
         else if (weaponSlot == 2) {
-            std::cout << "cannon 2" << std::endl;
+           // std::cout << "cannon 2" << std::endl;
         }
         else if (weaponSlot == 3) {
-            std::cout << "cannon 3" << std::endl;
+            //std::cout << "cannon 3" << std::endl;
         }
         else if (weaponSlot == 4) {
-            std::cout << "cannon 4" << std::endl;
+           // std::cout << "cannon 4" << std::endl;
         }
         else if (weaponSlot == 5) {
-            std::cout << "cannon 5" << std::endl;
+           // std::cout << "cannon 5" << std::endl;
         }
     }
 }
@@ -145,6 +153,12 @@ void Player::shootGun(){
 
 
 
-
-
-
+float Player::getInvincalbeDuration(){
+    return invincalbeDuration;
+}
+void Player::resetInvincalbeDuration(){
+    invincalbeDuration = 2;
+}
+void Player::invincableCountDown(const float deltaTime){
+    invincalbeDuration = invincalbeDuration - deltaTime;
+}
