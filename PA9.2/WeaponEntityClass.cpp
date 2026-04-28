@@ -31,8 +31,3 @@ float weaponEntityClass::getYCoordinate() const
 {
 	return this->y_coordinate;
 }
-
-
-void cannonWeapon::draw(sf::RenderWindow*& window){
-	window->draw(this->cannonShape);
-}
