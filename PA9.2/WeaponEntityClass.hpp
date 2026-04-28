@@ -95,3 +95,55 @@ public:
 		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y });
 	}
 };
+
+class doubleWeapon : public weaponEntityClass {
+protected:
+	sf::Vector2f Nose1; //cordnent were the projectile spawn
+	sf::Vector2f Nose2; //cordnent were the projectile spawn
+public:
+	//constructor
+	doubleWeapon(const float gap = 4, const int numBarrels = 2, const float barrolWidth = 10, const float barrolHight = 40, const sf::Color newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate) {
+		this->weapon.setOrigin({ 0,0 });
+		this->weapon.setPointCount(8);
+		this->weapon.setPoint(0, {(-barrolWidth - gap), 0});
+		this->weapon.setPoint(1, { (-barrolWidth - gap), barrolHight });
+		this->weapon.setPoint(2, { -gap, barrolHight });
+		this->weapon.setPoint(3, { -gap, gap });
+		this->weapon.setPoint(4, { gap, gap });
+		this->weapon.setPoint(5, { gap, barrolHight });
+		this->weapon.setPoint(6, { (barrolWidth + gap), barrolHight });
+		this->weapon.setPoint(7, { (barrolWidth + gap), 0});
+		this->weapon.setPosition({ x_coordinate, y_coordinate });
+		this->setNoseCoordinate();
+	}
+
+	void setNoseCoordinate() override {
+		this->Nose1 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(1).x, this->weapon.getPoint(1).y});
+		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y });
+	}
+};
+
+class basicWeapon : public weaponEntityClass {
+protected:
+	//the shape of the cannon, is a convex shape, as it is a vertex, not a circle.
+	sf::Vector2f Nose; //cordnent were the projectile spawn
+
+public:
+	//cunstructor
+	basicWeapon(const float height = 20, const float Width = 20, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
+	{
+		this->weapon.setOrigin({ 0, 0 });
+		this->weapon.setPointCount(4);
+		this->weapon.setPoint(0, { Width / 2, height / 2 });
+		this->weapon.setPoint(1, { (-Width / 2), height / 2 });
+		this->weapon.setPoint(2, { -Width / 2, -height / 2 });
+		this->weapon.setPoint(3, { Width / 2, -height / 2 });
+		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
+		this->setNoseCoordinate();
+	}
+	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
+	//posistion is subject to change.
+	void setNoseCoordinate() override {
+		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
+	}
+};

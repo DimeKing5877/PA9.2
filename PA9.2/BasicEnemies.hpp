@@ -19,7 +19,7 @@ public:
 class Grunt : public Enemy
 {
 public:
-	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 2, const double newArea = 25, const sf::Color& newColor = sf::Color::Red)
+	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Red)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
