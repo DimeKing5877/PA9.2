@@ -1,6 +1,6 @@
 #pragma once
 #include "BasicShapes.hpp"
-#define BASE_SPEED 2
+#define BASE_SPEED 100
 
 //parent to player and enemy classes
 class CharEntity : public Shape {

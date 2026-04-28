@@ -4,7 +4,7 @@
 
 class Player : public CharEntity {
 public:
-	Player(const double newMoveSpeed = 1.2, const int newHealth = 3, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
+	Player(const double newMoveSpeed = 1.8, const int newHealth = 5, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
 	: CharEntity(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) 
 	{
 		shape.setOrigin({float(area) , float(area)});
@@ -13,6 +13,8 @@ public:
 		weaponSlot = 3;
 		setWeaponsPosition();
 		setWeaponSize();
+		bodyDamage = 1;
+		invincalbeDuration = 2;
 	}
 	~Player();
 	
@@ -20,18 +22,22 @@ public:
 	//getters
 	bool vulnrable();//true=damage / false=no-damage
 	int getWeaponSlot();//gets the weapon slot the player is on
+	int getBodyDamage();
+	float getInvincalbeDuration();
 
 
 	//setters
 	void setVulnrabile(const bool vulnrable);//true=no-damage / false=damage
 	void setWeaponSlot(const int newWeaponSlot);//changes the weapon being held
 	void setWeaponSlot();//changes the weapon being held
-
+	void setBodyDamage(const int newBodyDamage);
+	void resetInvincalbeDuration();
+	void invincableCountDown(const float deltaTime);
 
 
 	//controls
 	void pointToMouse(const sf::Vector2f mousePosition);
-	void playerMove();
+	void playerMove(float deltatime);
 	void shootGun();
 	
 	
@@ -45,7 +51,8 @@ public:
 
 private:
 	bool isVulnrable;//true=damage / false=no-damage
-
+	int bodyDamage;
+	float invincalbeDuration;
 
 	int weaponSlot;//the weapon slot the players is on
 	basicWeapon	mainWeapon;//the main weapon

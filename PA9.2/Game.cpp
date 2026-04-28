@@ -65,9 +65,18 @@ void Game::update()
     time.nextDeltaTime();
 	// Game Logic Go Here
 
-    //if player is invulnrable and no timer set; set timer for invulrability
-    //if player is invulnrable and timer is zero; player.isVulnrable(true)
-
+    if (!player.vulnrable() && (player.getInvincalbeDuration() == 2)) {
+        player.setColor(sf::Color::Blue);
+        std::cout << "is Invincable" << std::endl;
+    }
+    if (!player.vulnrable() && (player.getInvincalbeDuration() <= 0)){//if player is invulnrable and timer is zero; reset timer and set vulnrable
+        player.setVulnrabile(true);
+        player.resetInvincalbeDuration();
+        player.setColor(sf::Color::Green);
+    }
+    if (!player.vulnrable() && (player.getInvincalbeDuration() > 0)) {//if player is invulnrable and timer is not zero; count down timer
+        player.invincableCountDown(time.getDeltaTime());
+    }
 
     //player updates
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
@@ -76,7 +85,7 @@ void Game::update()
     sf::Vector2i mousePixel = sf::Mouse::getPosition(*window);
     sf::Vector2f mouseWorld = window->mapPixelToCoords(mousePixel);
     player.pointToMouse(mouseWorld);
-    player.playerMove();
+    player.playerMove(time.getDeltaTime());
     player.setWeaponSlot();
     player.shootGun();
 
@@ -92,8 +101,11 @@ void Game::update()
     //hit detection
     if (player.vulnrable()) {//player is vulnrable to damage
         this->playerIsDamaged();
-    }   
-    this->damagedAnEnemy();
+    }
+    if(!player.isDead()) {
+        this->damagedAnEnemy();
+    }
+
 
 }
 
@@ -127,6 +139,21 @@ bool Game::isRunning() const
 }
 
 void Game::playerIsDamaged(){
+    if (player.checkHit(grunt.shape.getGlobalBounds())) {//code for the grunt that exists
+        player.updateHealth(1);//gunt.Damage()
+        
+        if (player.isDead()) {
+            window->close();
+        }
+        else {
+            player.setVulnrabile(false);
+        }
+        grunt.updateHealth(player.getBodyDamage());
+        if (grunt.isDead()) {//enemy is dead
+            grunt.setMoveSpeed(0);
+        }
+
+    }
     /*loop through all enemies and projectiles
     while () {//not end of enemy list
         //get one enemy
@@ -138,10 +165,10 @@ void Game::playerIsDamaged(){
                     //end game
                 }
                 else{
-                    player.setVulnrable(false);
+                    player.setVulnrabile(false);
                 }
             }
-            //get first projectile from enemy
+            //get first projectile from enemy//not needed of enemys do not shoot
             while () {
                 if (player.vulnrable()) {//player is vulnrable to damage
                     if (player.checkHit(.shape.getGlobalBounds())) {

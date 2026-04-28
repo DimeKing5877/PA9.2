@@ -13,7 +13,7 @@ public:
 	Enemy(const double newMoveSpeed, const int newHealth, const int newNumOfSides, const double newArea, const sf::Color& newColor) : CharEntity(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor)
 	{
 		shape.setOrigin({ float(area), float(area) });
-		shape.setPosition({ (int(WINDOW_WIDTH / 2) - float(area)), (int(WINDOW_LENGTH / 2) - float(area)) });
+		shape.setPosition({ (int(WINDOW_WIDTH) - float(area)), (int(WINDOW_LENGTH) - float(area)) });
 	}
 	virtual ~Enemy();
 
