@@ -106,12 +106,12 @@ public:
 		this->weapon.setOrigin({ 0,0 });
 		this->weapon.setPointCount(8);
 		this->weapon.setPoint(0, {(-barrolWidth - gap), 0});
-		this->weapon.setPoint(1, { (-barrolWidth - gap), barrolHight });
-		this->weapon.setPoint(2, { -gap, barrolHight });
+		this->weapon.setPoint(1, { (-barrolWidth - gap), -barrolHight });
+		this->weapon.setPoint(2, { -gap, -barrolHight });
 		this->weapon.setPoint(3, { -gap, gap });
 		this->weapon.setPoint(4, { gap, gap });
-		this->weapon.setPoint(5, { gap, barrolHight });
-		this->weapon.setPoint(6, { (barrolWidth + gap), barrolHight });
+		this->weapon.setPoint(5, { gap, -barrolHight });
+		this->weapon.setPoint(6, { (barrolWidth + gap), -barrolHight });
 		this->weapon.setPoint(7, { (barrolWidth + gap), 0});
 		this->weapon.setPosition({ x_coordinate, y_coordinate });
 		this->setNoseCoordinate();
@@ -129,14 +129,14 @@ protected:
 	sf::Vector2f Nose; //cordnent were the projectile spawn
 public:
 	//cunstructor
-	basicWeapon(const float height = 20, const float Width = 20, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
+	basicWeapon(const float height = 30, const float Width = 15, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({ 0, 0 });
 		this->weapon.setPointCount(4);
-		this->weapon.setPoint(0, { Width / 2, height / 2 });
-		this->weapon.setPoint(1, { (-Width / 2), height / 2 });
-		this->weapon.setPoint(2, { -Width / 2, -height / 2 });
-		this->weapon.setPoint(3, { Width / 2, -height / 2 });
+		this->weapon.setPoint(0, { Width / 2, height });
+		this->weapon.setPoint(1, { (-Width / 2), height});
+		this->weapon.setPoint(2, { -Width / 2, 0});
+		this->weapon.setPoint(3, { Width / 2, 0});
 		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
 	}
