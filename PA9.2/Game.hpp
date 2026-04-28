@@ -33,8 +33,15 @@ private:
 	Time time;
 	BackGround* background;
 
+
+
+
 	Player player;//the player
 	Grunt grunt;//generic enemy
+
+	std::vector<Enemy> enemyList;
+	void generateEnemy();//generates an enemy 
+
 	//need an array/list of all enemys
 
 

@@ -26,6 +26,8 @@
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="projectile.hpp">
       <Filter>Header</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
