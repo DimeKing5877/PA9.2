@@ -77,6 +77,7 @@ void Game::update()
 
     //enemys updates 
 	grunt.update(player.shape.getPosition(), time.getDeltaTime());
+    enemySpawner.update(time.getDeltaTime());
 
 
 

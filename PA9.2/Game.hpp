@@ -9,6 +9,7 @@
 #include "BackGroundCLass.hpp"
 #include "WeaponEntityClass.hpp"
 #include "BasicEnemies.hpp"
+#include "Spawner.hpp"
 
 
 class player;
@@ -32,14 +33,14 @@ private:
 	sf::RenderWindow* window;
 	Time time;
 	BackGround* background;
-
+	Spawner enemySpawner;
 
 
 
 	Player player;//the player
 	Grunt grunt;//generic enemy
 
-	std::vector<Enemy> enemyList;
+	
 	void generateEnemy();//generates an enemy 
 
 	//need an array/list of all enemys

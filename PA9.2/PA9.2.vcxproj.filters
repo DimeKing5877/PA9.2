@@ -25,6 +25,7 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="Spawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp">
@@ -55,6 +56,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicEnemies.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.hpp">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
