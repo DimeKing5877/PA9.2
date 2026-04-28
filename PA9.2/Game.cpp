@@ -84,11 +84,8 @@ void Game::update()
     //enemys updates 
 	grunt.update(player.shape.getPosition(), time.getDeltaTime());
 
+    //tests pewpew.update();//works
 
-
-
-
-   
     //hit detection
     if (player.vulnrable()) {//player is vulnrable to damage
         this->playerIsDamaged();
@@ -114,8 +111,10 @@ void Game::render()
 
 	//all draw functions go here
     player.draw(window);
-
 	grunt.draw(window);
+
+    //extra pewpew.draw(window); //works
+
 
     // Display everything
    window->display();

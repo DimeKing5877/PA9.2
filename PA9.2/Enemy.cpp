@@ -18,3 +18,8 @@ void Enemy::update(const sf::Vector2f playerPosition, float deltatime)
 		shape.setRotation(sf::radians(angle));
 	}
 }
+
+float Enemy::randomPosition()
+{
+	
+}

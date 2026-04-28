@@ -1,6 +1,7 @@
 #pragma once	
 #include "MainHeader.hpp"
 #include "BasicShapes.hpp"
+#include "projectile.hpp"
 #include <SFML/Graphics/Vertex.hpp>
 //weapon entity is the basics for a weapon in the game. future/complex weapons will be derived from this class. 
 

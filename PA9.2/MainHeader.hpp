@@ -2,6 +2,9 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <cstdlib>
+#include <random>
+#include <ctime>
 
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>

@@ -42,6 +42,10 @@ private:
 	std::vector<Enemy> enemyList;
 	void generateEnemy();//generates an enemy 
 
+	//extra
+	WeaponClass pewpew;
+
+
 	//need an array/list of all enemys
 
 
