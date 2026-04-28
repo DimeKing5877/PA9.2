@@ -129,7 +129,7 @@ protected:
 	sf::Vector2f Nose; //cordnent were the projectile spawn
 public:
 	//cunstructor
-	basicWeapon(const float height = 30, const float Width = 15, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
+	basicWeapon(const float height = -30, const float Width = 15, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({ 0, 0 });
 		this->weapon.setPointCount(4);
