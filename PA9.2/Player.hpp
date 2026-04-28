@@ -48,9 +48,12 @@ private:
 
 
 	int weaponSlot;//the weapon slot the players is on
-	cannonWeapon mainWeapon;//the cannon weapon for the player
-	plusWeapon secondWeapon;//the plus weapon for the player
-	lazzerWeapon thirdWeapon;//the lazzer weapon for player
+	basicWeapon	mainWeapon;//the main weapon
+	doubleWeapon secondWeapon;//double parel weapon
+	cannonWeapon thirdWeapon;//the cannon weapon for the player
+	plusWeapon fourthWeapon;//the plus weapon for the player
+	lazzerWeapon fifthWeapon;//the lazzer weapon for player
+	
 
 
 	void setWeaponsPosition();
