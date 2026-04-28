@@ -84,10 +84,10 @@ void Player::draw(sf::RenderWindow*& window){
         thirdWeapon.draw(window);
     }
     else if (weaponSlot == 4) {
-    
+        fourthWeapon.draw(window);
     }
     else if (weaponSlot == 5) {
-
+        fifthWeapon.draw(window);
     }
     window->draw(this->shape);
 }
@@ -95,17 +95,23 @@ void Player::setWeaponsPosition(){
     mainWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
     secondWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
     thirdWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
+    fourthWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
+    fifthWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
 }
 void Player::setWeaponSize(){
-    mainWeapon.getShape().scale({ 2.f,2.f });
-    secondWeapon.getShape().scale({ 1.75,1.75 });
+    mainWeapon.getShape().scale({ 1.f,1 });
+    secondWeapon.getShape().scale({ 1.f,1.f });
     thirdWeapon.getShape().scale({ 2.f,2.f });
+    fourthWeapon.getShape().scale({ 1.75,1.75 });
+    fifthWeapon.getShape().scale({ 2.f,2.f });
 }
 void Player::rotateWeapons(sf::Angle rotation){
-
     mainWeapon.getShape().setRotation(rotation);
     secondWeapon.getShape().setRotation(rotation);
     thirdWeapon.getShape().setRotation(rotation);
+    fourthWeapon.getShape().setRotation(rotation);
+    fifthWeapon.getShape().setRotation(rotation);
+
 }
 
 

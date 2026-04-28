@@ -146,7 +146,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="projectile.hpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponEntityClass.cpp" />
   </ItemGroup>
   <ItemGroup>
