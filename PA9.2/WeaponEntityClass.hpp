@@ -43,9 +43,9 @@ protected:
 
 public:
 	//cunstructor
-	cannonWeapon(const float height = 20, const float bottomWidth = 20, const float topWidth = 10, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
+	cannonWeapon(const float height = 20, const float bottomWidth = 20, const float topWidth = 10, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
-		this->weapon.setOrigin({0, 0});
+		this->weapon.setOrigin({0, height/2});
 		this->weapon.setPointCount(4);
 		this->weapon.setPoint(0, { topWidth/2, height/2 });
 		this->weapon.setPoint(1, {( - topWidth / 2), height / 2});
@@ -69,7 +69,7 @@ protected:
 	sf::Vector2f Nose4; //cordnent were the projectile spawn
 public:
 	//constructor
-	plusWeapon(const float barrolWidth = 5, const float barrolHight = 20, const sf::Color newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate) {
+	plusWeapon(const float barrolWidth = 10, const float barrolHight = 20, const sf::Color newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate) {
 		this->weapon.setOrigin({ 0,0 });
 		this->weapon.setPointCount(12);
 		this->weapon.setPoint(0, { (barrolWidth / 2), barrolHight });
@@ -93,5 +93,31 @@ public:
 		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(3).x, this->weapon.getPoint(3).y });
 		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y });
 		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y });
+	}
+};
+
+
+class lazzerWeapon : public weaponEntityClass {
+protected:
+	//the shape of the cannon, is a convex shape, as it is a vertex, not a circle.
+	sf::Vector2f Nose; //cordnent were the projectile spawn
+
+public:
+	//cunstructor
+	lazzerWeapon(const float height = 20, const float bottomWidth = 10, const float topWidth = 20, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
+	{
+		this->weapon.setOrigin({ 0, height / 2 });
+		this->weapon.setPointCount(4);
+		this->weapon.setPoint(0, { topWidth / 2, height / 2 });
+		this->weapon.setPoint(1, { (-topWidth / 2), height / 2 });
+		this->weapon.setPoint(2, { -bottomWidth / 2, -height / 2 });
+		this->weapon.setPoint(3, { bottomWidth / 2, -height / 2 });
+		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
+		this->setNoseCoordinate();
+	}
+	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
+	//posistion is subject to change.
+	void setNoseCoordinate() override {
+		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
 	}
 };
