@@ -81,7 +81,7 @@ void Game::update()
     player.pointToMouse(mouseWorld);
     player.playerMove(time.getDeltaTime());
     player.setWeaponSlot();
-    player.shootGun();
+    player.shootGun(mouseWorld, time.getDeltaTime());
 
 
     //enemys updates 
