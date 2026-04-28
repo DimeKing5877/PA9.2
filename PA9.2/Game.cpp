@@ -65,6 +65,10 @@ void Game::update()
     time.nextDeltaTime();
 	// Game Logic Go Here
 
+    //if player is invulnrable and no timer set; set timer for invulrability
+    //if player is invulnrable and timer is zero; player.isVulnrable(true)
+
+
     //player updates
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
 
@@ -82,6 +86,14 @@ void Game::update()
 
 
 
+
+
+   
+    //hit detection
+    if (player.vulnrable()) {//player is vulnrable to damage
+        this->playerIsDamaged();
+    }   
+    this->damagedAnEnemy();
 
 }
 
@@ -117,4 +129,59 @@ void Game::render()
 bool Game::isRunning() const
 {
     return window->isOpen();
+}
+
+void Game::playerIsDamaged(){
+    /*loop through all enemies and projectiles
+    while () {//not end of enemy list
+        //get one enemy
+        if (player.vulnrable()) {//player is vulnrable to damage
+            //hit detection for player
+            if (player.checkHit(grunt.shape.getGlobalBounds())) {
+                //player.updateHealth();//gunt.Damage()
+                if (player.isDead()) {
+                    //end game
+                }
+                else{
+                    player.setVulnrable(false);
+                }
+            }
+            //get first projectile from enemy
+            while () {
+                if (player.vulnrable()) {//player is vulnrable to damage
+                    if (player.checkHit(.shape.getGlobalBounds())) {
+                        //player.updateHealth();//projectile.Damage()
+                        if (player.isDead()) {
+                            //end game
+                        }
+                        else{
+                            player.setVulnrable(false);
+                        }
+                    }
+                }
+                //loop till end of projectiles
+            }
+        }
+        //loop till next enemy
+    }
+    */
+}
+
+void Game::damagedAnEnemy(){
+    /*
+    //get the projectiles from player
+    while () {//not end of player projectile list
+        while () {//not end of enemy list
+            if () {//projectile hit by enemy
+                //delete player projectile
+                //update enemy health
+                if (.isDead()) {//enemy is dead
+                    //delete enemy
+                }
+            }
+        }
+       //get next projectile
+    }
+    
+    */
 }

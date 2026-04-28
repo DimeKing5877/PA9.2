@@ -14,17 +14,17 @@ int CharEntity::getHealth()
 	return health;
 }
 
-void CharEntity::setMoveSpeed(double newSpeed)
+void CharEntity::setMoveSpeed(const double& newSpeed)
 {
 	moveSpeed = newSpeed;
 }
 
-void CharEntity::setHealth(int newHealth)
+void CharEntity::setHealth(const int& newHealth)
 {
 	health = newHealth;
 }
 
-void CharEntity::updateHealth(int damage)
+void CharEntity::updateHealth(const int& damage)
 {
 	health -= damage;
 }
@@ -42,6 +42,16 @@ bool CharEntity::isDead()
 //needs to be built, so the entity shape needs to be deleted 
 void CharEntity::dies(){
 	
+}
+
+bool CharEntity::checkHit(const sf::FloatRect& otherBox){
+	bool hit = false;
+	sf::FloatRect boundingBox = shape.getGlobalBounds();
+	if (const std::optional intersection = boundingBox.findIntersection(otherBox))
+	{
+		hit = true;
+	}
+	return hit;
 }
 
 
