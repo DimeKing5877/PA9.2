@@ -23,6 +23,10 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="projectile.hpp">
+      <Filter>Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp">
