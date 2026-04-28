@@ -27,15 +27,21 @@ public:
 	//draw function, will be implemented in the derived classes, as diffrent weapons will have diffrent shapes.
 	void draw(sf::RenderWindow*& window); 
 
+	//create the projectiles by calling WeaponClasses functions (each object has set variables for each)
+	virtual void shoot(sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity);
+
+	virtual void update();
 
 protected:
+	//basic weapon that is latter shaped in chiled class
 	sf::ConvexShape weapon;
-	//projectile class gose here, but I have not implemented it yet. //array
+	//projectile class gose here, but I have not implemented it yet. 
+	WeaponClass projectile;
+
 	float x_coordinate; //spawn point of the weapon.
 	float y_coordinate; //spawn point of the weapon.
 	sf::Color objectColor; //color of the weapon, will be used to color the projectile as well.
 };
-
 
 class cannonWeapon : public weaponEntityClass {
 protected:
@@ -148,7 +154,7 @@ public:
 	}
 };
   
-  class lazzerWeapon : public weaponEntityClass {
+class lazzerWeapon : public weaponEntityClass {
   protected:
 	  sf::Vector2f Nose; //cordnent were the projectile spawn
   public:
@@ -169,4 +175,6 @@ public:
 	void setNoseCoordinate() override {
 		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
 	}
+
 };
+
