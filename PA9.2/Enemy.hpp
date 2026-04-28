@@ -19,6 +19,8 @@ public:
 
 	virtual void update(const sf::Vector2f playerPosition, float deltatime);
 
+	float randomPosition();
+
 protected:
 	// Weapon once the class has been implemented
 };

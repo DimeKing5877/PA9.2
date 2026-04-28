@@ -12,11 +12,11 @@ private:
     bool active;
 
 public:
-    Projectile(sf::Vector2f startPos, sf::Vector2f direction)
+    Projectile(const int newNumOfSides, const double newRad, const sf::Color& newColor, sf::Vector2f startPos, sf::Vector2f direction, float volocity) : Shape(newNumOfSides, newRad, newColor)
     {
-        bullet.setRadius(6.f);
-        bullet.setFillColor(sf::Color::Yellow);
-        bullet.setOrigin({ 6.f, 6.f });
+        bullet.setRadius(newRad);
+        bullet.setFillColor(newColor);
+        bullet.setOrigin({ 0, 0 });
         bullet.setPosition(startPos);
 
         float length = sqrt((direction.x * direction.x) + (direction.y * direction.y));
@@ -27,7 +27,7 @@ public:
             direction.y = direction.y / length;
         }
 
-        velocity = direction * 10.f;
+        velocity = direction * volocity;
         active = true;
     }
 
@@ -37,15 +37,15 @@ public:
 
         sf::Vector2f pos = bullet.getPosition();
 
-        if (pos.x < 0 || pos.x > 1000 || pos.y < 0 || pos.y > 800)
+        if (pos.x < 0 || pos.x > WINDOW_WIDTH || pos.y < 0 || pos.y > WINDOW_LENGTH)
         {
             active = false;
         }
     }
 
-    void draw(sf::RenderWindow& window)
+    void draw(sf::RenderWindow*& window)
     {
-        window.draw(bullet);
+        window->draw(bullet);
     }
 
     bool isActive() const
@@ -59,20 +59,21 @@ public:
     }
 };
 
-class Weapon
+//weapon class
+class WeaponClass
 {
 private:
     std::vector<Projectile> projectiles;
 
 public:
-    void shoot(sf::Vector2f startPos, sf::Vector2f targetPos)
+    void shoot(sf::Vector2f startPos, sf::Vector2f targetPos, float volocity, float deltaTime, int newNumOfSides, double newRad)
     {
         sf::Vector2f direction;
 
         direction.x = targetPos.x - startPos.x;
         direction.y = targetPos.y - startPos.y;
 
-        projectiles.push_back(Projectile(startPos, direction));
+        projectiles.push_back(Projectile(newNumOfSides, newRad, sf::Color::Black, startPos, direction , (volocity * deltaTime)));
     }
 
     void update()
@@ -92,7 +93,7 @@ public:
         );
     }
 
-    void draw(sf::RenderWindow& window)
+    void draw(sf::RenderWindow*& window)
     {
         for (int i = 0; i < projectiles.size(); i++)
         {
@@ -105,3 +106,5 @@ public:
         return projectiles;
     }
 };
+
+//example: pewpew.shoot({ 300,300 }, { 800, 800 }, 30, time.getDeltaTime(), 1, 10);
