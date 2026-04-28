@@ -22,7 +22,9 @@
     <ClCompile Include="WeaponEntityClass.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundClass.hpp">
