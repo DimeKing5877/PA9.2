@@ -22,3 +22,4 @@ public:
 protected:
 	// Weapon once the class has been implemented
 };
+

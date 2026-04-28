@@ -7,27 +7,25 @@ weaponEntityClass::weaponEntityClass(const sf::Color newColor, float x_coordinat
 	this->objectColor = newColor;
 }
 
-void weaponEntityClass::setXCoordinate(float newXCoordinate)
-{
-	this->x_coordinate = newXCoordinate;
-}
-
-void weaponEntityClass::setYCoordinate(float newYCoordinate)
-{
-	this->y_coordinate = newYCoordinate;
-}
-
 void weaponEntityClass::setColor(const sf::Color newColor)
 {
 	this->objectColor = newColor;
 }
 
-float weaponEntityClass::getXCoordinate() const
+void weaponEntityClass::setObjectPosition(float newX, float newY)
 {
-	return this->x_coordinate;
+	this->weapon.setPosition({ newX, newY });
 }
 
-float weaponEntityClass::getYCoordinate() const
+void weaponEntityClass::moveObject(float newX, float newY){
+	this->weapon.move({ newX, newY });
+}
+
+sf::ConvexShape& weaponEntityClass::getShape()
 {
-	return this->y_coordinate;
+	return this->weapon;
+}
+
+void weaponEntityClass::draw(sf::RenderWindow*& window){
+	window->draw(this->weapon);
 }

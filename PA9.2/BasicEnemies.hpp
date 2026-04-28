@@ -11,7 +11,7 @@
 class Pest : public Enemy
 {
 public:
-	Pest(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 3, const double newArea = 20, const sf::Color& newColor = sf::Color::Yellow)
+	Pest(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Yellow)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
@@ -19,7 +19,7 @@ public:
 class Grunt : public Enemy
 {
 public:
-	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 3, const double newArea = 20, const sf::Color& newColor = sf::Color::Red)
+	Grunt(const double newMoveSpeed = 1.0, const int newHealth = 3, const int newNumOfSides = 2, const double newArea = 25, const sf::Color& newColor = sf::Color::Red)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
@@ -27,6 +27,6 @@ public:
 class Brute : public Enemy
 {
 public:
-	Brute(const double newMoveSpeed = 0.75, const int newHealth = 5, const int newNumOfSides = 3, const double newArea = 20, const sf::Color& newColor = sf::Color::Magenta)
+	Brute(const double newMoveSpeed = 0.75, const int newHealth = 5, const int newNumOfSides = 4, const double newArea = 20, const sf::Color& newColor = sf::Color::Magenta)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
