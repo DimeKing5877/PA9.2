@@ -11,7 +11,7 @@
 class Pest : public Enemy
 {
 public:
-	Pest(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 3, const double newArea = 20, const sf::Color& newColor = sf::Color::Yellow)
+	Pest(const double newMoveSpeed = 1.5, const int newHealth = 1, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Yellow)
 		: Enemy(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) {}
 };
 
