@@ -185,3 +185,13 @@ void Game::damagedAnEnemy(){
     
     */
 }
+
+void Game::generateEnemy()
+{}
+
+
+
+
+
+
+

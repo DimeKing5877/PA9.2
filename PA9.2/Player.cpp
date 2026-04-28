@@ -10,6 +10,19 @@ void Player::setVulnrabile(const bool vulnrable){
     isVulnrable = vulnrable;
 }
 
+
+int Player::getWeaponSlot(){
+    return weaponSlot;
+}
+void Player::setWeaponSlot(const int newWeaponSlot){
+    weaponSlot = newWeaponSlot;
+}
+
+
+
+
+
+
 void Player::pointToMouse(const sf::Vector2f mousePosition)
 {
     sf::Vector2f direction = mousePosition - shape.getPosition();
@@ -37,9 +50,29 @@ void Player::playerMove()
         shape.move({ float( moveSpeed),0.f });
     }
 
+    //update weapon position 
+    setWeaponsPosition();
+}
 
 
-    //update whepon position 
 
+void Player::draw(sf::RenderWindow*& window){
+    window->draw(this->shape);
+    if (weaponSlot = 1) {
+        mainWeapon.draw(window);
+    }
+    else if (weaponSlot = 1) {
+        secondWeapon.draw(window);
+    }
+}
+void Player::setWeaponsPosition(){
+    mainWeapon.setXCoordinate(shape.getPosition().x);
+    mainWeapon.setYCoordinate(shape.getPosition().y);
+
+    secondWeapon.setXCoordinate(shape.getPosition().x);
+    secondWeapon.setYCoordinate(shape.getPosition().y);
+    
 
 }
+
+
