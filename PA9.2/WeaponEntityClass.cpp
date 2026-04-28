@@ -28,6 +28,7 @@ sf::ConvexShape& weaponEntityClass::getShape()
 
 void weaponEntityClass::draw(sf::RenderWindow*& window){
 	window->draw(this->weapon);
+	this->projectile.draw(window);
 }
 
 void weaponEntityClass::shoot(sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity)
