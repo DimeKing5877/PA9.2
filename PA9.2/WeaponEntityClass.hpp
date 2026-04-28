@@ -28,9 +28,14 @@ public:
 	void draw(sf::RenderWindow*& window); 
 
 	//create the projectiles by calling WeaponClasses functions (each object has set variables for each)
-	virtual void shoot(sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity);
+	virtual void shoot(sf::Vector2f nose, sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity);
 
 	virtual void update();
+
+	//update Nose
+	void updateNose() {
+		this->setNoseCoordinate();
+	}
 
 protected:
 	//basic weapon that is latter shaped in chiled class
@@ -65,6 +70,11 @@ public:
 	//posistion is subject to change.
 	void setNoseCoordinate() override {
 		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y});
+	}
+
+	//getters
+	sf::Vector2f getNose() {
+		return this->Nose;
 	}
 };
 
@@ -101,6 +111,20 @@ public:
 		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y });
 		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y });
 	}
+
+	//getters:
+	sf::Vector2f getNose1(){
+		return this->Nose1;
+	}
+	sf::Vector2f getNose2() {
+		return this->Nose2;
+	}
+	sf::Vector2f getNose3() {
+		return this->Nose3;
+	}
+	sf::Vector2f getNose4() {
+		return this->Nose4;
+	}
 };
 
 class doubleWeapon : public weaponEntityClass {
@@ -128,6 +152,14 @@ public:
 		this->Nose1 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(1).x, this->weapon.getPoint(1).y});
 		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y });
 	}
+
+	//getters
+	sf::Vector2f getNose1() {
+		return this->Nose1;
+	}
+	sf::Vector2f getNose2() {
+		return this->Nose2;
+	}
 };
 
 class basicWeapon : public weaponEntityClass {
@@ -152,6 +184,10 @@ public:
 	void setNoseCoordinate() override {
 		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
 	}
+	//getter
+	sf::Vector2f getNose() {
+		return this->Nose;
+	}
 };
   
 class lazzerWeapon : public weaponEntityClass {
@@ -175,6 +211,9 @@ class lazzerWeapon : public weaponEntityClass {
 	void setNoseCoordinate() override {
 		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
 	}
-
+	//getter
+	sf::Vector2f getNose() {
+		return this->Nose;
+	}
 };
 
