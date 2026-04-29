@@ -106,10 +106,10 @@ public:
 	}
 
 	void setNoseCoordinate() override {
-		this->Nose1 = this->weapon.getTransform().transformPoint({this->weapon.getPoint(0).x, this->weapon.getPoint(0).y});
-		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(3).x, this->weapon.getPoint(3).y });
-		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y });
-		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y });
+		this->Nose1 = this->weapon.getTransform().transformPoint({this->weapon.getPoint(0).x, this->weapon.getPoint(0).y}); //bottem
+		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(3).x, this->weapon.getPoint(3).y }); //right
+		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y }); //top
+		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y }); //left
 	}
 
 	//getters:
