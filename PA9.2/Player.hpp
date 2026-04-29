@@ -2,6 +2,13 @@
 #include "CharEntity.hpp"
 #include "WeaponEntityClass.hpp"
 
+#define WEAPON_SPEED1 1
+#define WEAPON_SPEED2 .5
+#define WEAPON_SPEED3 5
+#define WEAPON_SPEED4 2
+#define WEAPON_SPEED5 10
+
+
 class Player : public CharEntity {
 public:
 	Player(const double newMoveSpeed = 1.8, const int newHealth = 5, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
@@ -10,11 +17,21 @@ public:
 		shape.setOrigin({float(area) , float(area)});
 		shape.setPosition({(int(WINDOW_WIDTH/2)- float(area)), (int(WINDOW_LENGTH/2) - float(area))});
 		isVulnrable = true;
-		weaponSlot = 3;
+		weaponSlot = 1;
 		setWeaponsPosition();
 		setWeaponSize();
 		bodyDamage = 1;
 		invincalbeDuration = 2;
+
+
+		//weapon base cooldown
+		mainWeaponRest = 0;
+		secondWeaponRest = 0;
+		thirdWeaponRest = 0;
+		fourthWeaponRest = 0;
+		fifthWeaponRest = 0;
+		evenShot = 0;
+		lazerDeration = WEAPON_SPEED2;
 	}
 	~Player();
 	
@@ -27,18 +44,18 @@ public:
 
 
 	//setters
-	void setVulnrabile(const bool vulnrable);//true=no-damage / false=damage
-	void setWeaponSlot(const int newWeaponSlot);//changes the weapon being held
+	void setVulnrabile(const bool& vulnrable);//true=no-damage / false=damage
+	void setWeaponSlot(const int& newWeaponSlot);//changes the weapon being held
 	void setWeaponSlot();//changes the weapon being held
-	void setBodyDamage(const int newBodyDamage);
+	void setBodyDamage(const int& newBodyDamage);
 	void resetInvincalbeDuration();
-	void invincableCountDown(const float deltaTime);
+	void invincableCountDown(const float& deltaTime);
 
 
 	//controls
-	void pointToMouse(const sf::Vector2f mousePosition);
-	void playerMove(float deltatime);
-	void shootGun();
+	void pointToMouse(const sf::Vector2f& mousePosition);
+	void playerMove(const float& deltatime);
+	void shootGun(const sf::Vector2f& mousePosition, const float& deltatime);
 	
 	
 	void draw(sf::RenderWindow*& window);//draw, overrides original so it can redraw weapon
@@ -62,6 +79,14 @@ private:
 	lazzerWeapon fifthWeapon;//the lazzer weapon for player
 	
 
+	int evenShot;
+	float mainWeaponRest;
+	float secondWeaponRest;
+	float thirdWeaponRest;
+	float fourthWeaponRest;
+	float fifthWeaponRest;
+	void allWeaponCoolDowns(float deltaTime);
+	float lazerDeration;
 
 	void setWeaponsPosition();
 	void setWeaponSize();

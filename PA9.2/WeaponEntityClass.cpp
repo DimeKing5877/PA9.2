@@ -28,15 +28,17 @@ sf::ConvexShape& weaponEntityClass::getShape()
 
 void weaponEntityClass::draw(sf::RenderWindow*& window){
 	window->draw(this->weapon);
+	this->projectile.draw(window);
 }
 
-void weaponEntityClass::shoot(sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity)
+void weaponEntityClass::shoot(sf::Vector2f nose, sf::Vector2f Mouse, float deltaTime, int shape, int size, float velocity)
 {
-	this->projectile.shoot(this->weapon.getPosition(), Mouse, velocity, deltaTime, shape, size);
+	this->projectile.shoot(nose, Mouse, velocity, deltaTime, shape, size);
 }
 
 void weaponEntityClass::update()
 {
+	this->updateNose();
 	if (!this->projectile.getProjectiles().empty()) {
 		this->projectile.update();
 	}

@@ -6,7 +6,7 @@ Player::~Player()
 bool Player::vulnrable(){
     return isVulnrable;
 }
-void Player::setVulnrabile(const bool vulnrable){
+void Player::setVulnrabile(const bool& vulnrable){
     isVulnrable = vulnrable;
 }
 
@@ -14,7 +14,7 @@ void Player::setVulnrabile(const bool vulnrable){
 int Player::getWeaponSlot(){
     return weaponSlot;
 }
-void Player::setWeaponSlot(const int newWeaponSlot){
+void Player::setWeaponSlot(const int& newWeaponSlot){
     weaponSlot = newWeaponSlot;
 }
 void Player::setWeaponSlot(){
@@ -39,7 +39,7 @@ void Player::setWeaponSlot(){
 int Player::getBodyDamage(){
     return bodyDamage;
 }
-void Player::setBodyDamage(const int newBodyDamage){
+void Player::setBodyDamage(const int& newBodyDamage){
     bodyDamage = newBodyDamage;
 }
 
@@ -47,7 +47,7 @@ void Player::setBodyDamage(const int newBodyDamage){
 
 
 
-void Player::pointToMouse(const sf::Vector2f mousePosition)
+void Player::pointToMouse(const sf::Vector2f& mousePosition)
 {
     sf::Vector2f direction = mousePosition - shape.getPosition();
     float angle = atan2(direction.y, direction.x);
@@ -55,7 +55,7 @@ void Player::pointToMouse(const sf::Vector2f mousePosition)
     rotateWeapons(sf::radians(angle + (3.141 / 2)));
 }
 
-void Player::playerMove(float deltatime)
+void Player::playerMove(const float& deltatime)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && (this->shape.getPosition().y > 0))
     {
@@ -127,26 +127,76 @@ void Player::rotateWeapons(sf::Angle rotation){
 
 
 
-void Player::shootGun(){
+void Player::shootGun(const sf::Vector2f& mousePosition, const float& deltatime){// mouse, time, 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) || sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-        if (weaponSlot == 1) {
-           // std::cout << "cannon 1" << std::endl;
+        if (weaponSlot == 1 && mainWeaponRest <= 0) {
+            mainWeapon.shoot(mainWeapon.getNose(), mousePosition, deltatime, 5, 10, getMoveSpeed() + 300);
+            mainWeaponRest = WEAPON_SPEED1;
         }
-        else if (weaponSlot == 2) {
-           // std::cout << "cannon 2" << std::endl;
+        else if (weaponSlot == 2 && secondWeaponRest <= 0) {
+            if (evenShot == 0) {
+                secondWeapon.shoot(secondWeapon.getNose1(), mousePosition, deltatime, 5, 5, getMoveSpeed() + 200);
+                evenShot = 1;
+            }
+            else {
+                secondWeapon.shoot(secondWeapon.getNose2(), mousePosition, deltatime, 5, 5, getMoveSpeed() + 200);
+                evenShot = 0;
+            }
+            secondWeaponRest = WEAPON_SPEED2;
         }
-        else if (weaponSlot == 3) {
+        else if (weaponSlot == 3 && thirdWeaponRest <= 0) {
             //std::cout << "cannon 3" << std::endl;
+            thirdWeapon.shoot(thirdWeapon.getNose(), mousePosition, deltatime, 5, 30, getMoveSpeed() + 100);
+            thirdWeaponRest = WEAPON_SPEED3;
         }
-        else if (weaponSlot == 4) {
+        else if (weaponSlot == 4 && fourthWeaponRest <= 0) {
            // std::cout << "cannon 4" << std::endl;
+            fourthWeapon.shoot(fourthWeapon.getShape().getPosition(), fourthWeapon.getNose1(), deltatime, 5, 10, getMoveSpeed() + 200);
+            fourthWeapon.shoot(fourthWeapon.getShape().getPosition(), fourthWeapon.getNose2(), deltatime, 5, 10, getMoveSpeed() + 200);
+            fourthWeapon.shoot(fourthWeapon.getShape().getPosition(), fourthWeapon.getNose3(), deltatime, 5, 10, getMoveSpeed() + 200);
+            fourthWeapon.shoot(fourthWeapon.getShape().getPosition(), fourthWeapon.getNose4(), deltatime, 5, 10, getMoveSpeed() + 200);
+            fourthWeaponRest = WEAPON_SPEED4;
         }
-        else if (weaponSlot == 5) {
+        else if (weaponSlot == 5 && (fifthWeaponRest <= 0 && lazerDeration > 0)) {
            // std::cout << "cannon 5" << std::endl;
+            fifthWeapon.shoot(fifthWeapon.getNose(), mousePosition, deltatime, 5, 15, getMoveSpeed() + 500);
+            lazerDeration = lazerDeration - deltatime;
+            if (lazerDeration < 0) {
+                lazerDeration = WEAPON_SPEED2;
+                fifthWeaponRest = WEAPON_SPEED5;
+            }
+
         }
     }
-}
+    
 
+
+    mainWeapon.update();
+    secondWeapon.update();
+    thirdWeapon.update();
+    fourthWeapon.update();
+    fifthWeapon.update();
+
+    allWeaponCoolDowns(deltatime);
+}
+void Player::allWeaponCoolDowns(float deltaTime){
+    if (mainWeaponRest > 0) {
+        mainWeaponRest = mainWeaponRest - deltaTime;
+    }
+    if (secondWeaponRest > 0) {
+        secondWeaponRest = secondWeaponRest - deltaTime;
+    }
+    if (thirdWeaponRest > 0) {
+        thirdWeaponRest = thirdWeaponRest - deltaTime;
+    }
+    if (fourthWeaponRest > 0) {
+        fourthWeaponRest = fourthWeaponRest - deltaTime;
+    }
+    if (fifthWeaponRest > 0) {
+        fifthWeaponRest = fifthWeaponRest - deltaTime;
+    }
+   
+}
 
 
 
@@ -159,6 +209,6 @@ float Player::getInvincalbeDuration(){
 void Player::resetInvincalbeDuration(){
     invincalbeDuration = 2;
 }
-void Player::invincableCountDown(const float deltaTime){
+void Player::invincableCountDown(const float& deltaTime){
     invincalbeDuration = invincalbeDuration - deltaTime;
 }
