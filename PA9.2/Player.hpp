@@ -30,6 +30,8 @@ public:
 		thirdWeaponRest = 0;
 		fourthWeaponRest = 0;
 		fifthWeaponRest = 0;
+		evenShot = 0;
+		lazerDeration = WEAPON_SPEED2;
 	}
 	~Player();
 	
@@ -77,12 +79,14 @@ private:
 	lazzerWeapon fifthWeapon;//the lazzer weapon for player
 	
 
+	int evenShot;
 	float mainWeaponRest;
 	float secondWeaponRest;
 	float thirdWeaponRest;
 	float fourthWeaponRest;
 	float fifthWeaponRest;
 	void allWeaponCoolDowns(float deltaTime);
+	float lazerDeration;
 
 	void setWeaponsPosition();
 	void setWeaponSize();
