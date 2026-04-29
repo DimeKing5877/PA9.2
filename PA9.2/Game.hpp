@@ -31,9 +31,9 @@ private:
 	std::string windowTitle;
 	sf::VideoMode vm;
 	sf::RenderWindow* window;
+	sf::RenderTexture* renderTexture;
 	Time time;
 	BackGround* background;
-	Spawner enemySpawner;
 
 
 
@@ -48,7 +48,7 @@ private:
 
 
 	//need an array/list of all enemys
-
+	Spawner enemySpawner;
 
 
 
