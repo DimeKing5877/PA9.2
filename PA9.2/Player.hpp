@@ -60,7 +60,7 @@ public:
 	
 	void draw(sf::RenderWindow*& window);//draw, overrides original so it can redraw weapon
 	
-
+	basicWeapon	mainWeapon;//the main weapon
 
 
 	//getters and setters for the lsit of projectiles shot
@@ -72,7 +72,7 @@ private:
 	float invincalbeDuration;
 
 	int weaponSlot;//the weapon slot the players is on
-	basicWeapon	mainWeapon;//the main weapon
+	
 	doubleWeapon secondWeapon;//double parel weapon
 	cannonWeapon thirdWeapon;//the cannon weapon for the player
 	plusWeapon fourthWeapon;//the plus weapon for the player
