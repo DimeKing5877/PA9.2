@@ -2,6 +2,7 @@
 
 Spawner::Spawner()
 {
+	maxTierReached = false;
 	spawnTimer = 0.f;
 	spawnTimerMax = 5.f;
 	smallestTimeSpawnLimit = 1.f;
