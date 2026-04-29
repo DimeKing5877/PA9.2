@@ -23,6 +23,7 @@ void Game::initVariables()
 void Game::initWindow()
 {
     this->window = new sf::RenderWindow(vm, windowTitle, sf::Style::Titlebar | sf::Style::Close);
+    this->renderTexture = new sf::RenderTexture({windowWidth+200, windowHeight+200});
     window->setFramerateLimit(60);
 }
 
@@ -30,6 +31,7 @@ void Game::initWindow()
 Game::~Game()
 {
     delete background;
+	delete renderTexture;
     delete window;
 }
 
@@ -85,8 +87,12 @@ void Game::update()
 
 
     //enemys updates 
-	grunt.update(player.shape.getPosition(), time.getDeltaTime());
+	//grunt.update(player.shape.getPosition(), time.getDeltaTime());
     enemySpawner.update(time.getDeltaTime());
+
+	for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+        enemy.update(player.shape.getPosition(), time.getDeltaTime());
+    }
 
     //tests pewpew.update();//works
 
@@ -104,6 +110,7 @@ void Game::update()
 void Game::render()
 {
     window->clear(sf::Color::Black);
+	renderTexture->clear(sf::Color::Transparent);
 
     // Lazy initialize background (once window exists)
     if (!background) {
@@ -118,7 +125,11 @@ void Game::render()
 
 	//all draw functions go here
     player.draw(window);
-	grunt.draw(window);
+	//grunt.draw(window);
+
+    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+		window->draw(enemy.shape);
+    }
 
     //extra pewpew.draw(window); //works
 
