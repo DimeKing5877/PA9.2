@@ -21,6 +21,12 @@ void Enemy::update(const sf::Vector2f playerPosition, float deltatime)
 	}
 }
 
+void Enemy::setPosition(float x, float y)
+{
+	this->shape.setPosition(sf::Vector2f(x, y));
+}
+
+// Whose Function is this?
 float Enemy::randomPosition()
 {
 	

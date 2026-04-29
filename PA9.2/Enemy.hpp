@@ -19,6 +19,8 @@ public:
 
 	virtual void update(const sf::Vector2f playerPosition, float deltatime);
 
+	void setPosition(float x, float y);
+
 	float randomPosition();
 
 protected:
