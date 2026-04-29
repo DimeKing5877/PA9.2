@@ -143,6 +143,36 @@ bool Game::isRunning() const
     return window->isOpen();
 }
 
+void Game::playerIsDamaged(){
+    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+        if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
+			player.updateHealth(1);// enemy Damage is equal to 1 for now
+
+            if (player.isDead()) {
+                window->close();
+            }
+            else {
+                player.setVulnrabile(false);
+            }
+            enemy.updateHealth(player.getBodyDamage()+2);
+            if (enemy.isDead()) {//enemy is dead
+                enemy.setMoveSpeed(0);//need to change to deleting enemy
+                
+            }
+        
+        }
+        
+    }
+}
+
+void Game::damagedAnEnemy(){
+    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+       
+
+    }
+}
+
+
 
 
 
