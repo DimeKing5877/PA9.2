@@ -87,7 +87,7 @@ void Game::update()
 
 
     //enemys updates 
-	grunt.update(player.shape.getPosition(), time.getDeltaTime());
+	//grunt.update(player.shape.getPosition(), time.getDeltaTime());
     enemySpawner.update(time.getDeltaTime());
 
 	for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
@@ -125,7 +125,7 @@ void Game::render()
 
 	//all draw functions go here
     player.draw(window);
-	grunt.draw(window);
+	//grunt.draw(window);
 
     for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
 		window->draw(enemy.shape);
@@ -144,7 +144,24 @@ bool Game::isRunning() const
 }
 
 void Game::playerIsDamaged(){
-    if (player.checkHit(grunt.shape.getGlobalBounds())) {//code for the grunt that exists
+    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+        if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
+			player.updateHealth(1);// enemy Damage is equal to 1 for now
+
+            if (player.isDead()) {
+                window->close();
+            }
+            else {
+                player.setVulnrabile(false);
+            }
+            enemy.updateHealth(player.getBodyDamage());
+            if (enemy.isDead()) {//enemy is dead
+                enemy.setMoveSpeed(0);
+            }
+
+        }
+    }
+    /*if (player.checkHit(grunt.shape.getGlobalBounds())) {//code for the grunt that exists
         player.updateHealth(1);//gunt.Damage()
         
         if (player.isDead()) {
@@ -158,7 +175,7 @@ void Game::playerIsDamaged(){
             grunt.setMoveSpeed(0);
         }
 
-    }
+    }*/
     /*loop through all enemies and projectiles
     while () {//not end of enemy list
         //get one enemy
