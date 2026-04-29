@@ -1,77 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="BasicShapes.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="CharEntity.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponEntityClass.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
+    <ClCompile Include="BasicShapes.cpp" />
+    <ClCompile Include="CharEntity.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Weapon.cpp" />
-    <ClCompile Include="projectile.hpp">
-      <Filter>Header</Filter>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="projectile.hpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="WeaponEntityClass.cpp" />
+    <ClCompile Include="projectialColition.cpp" />
+    <ClCompile Include="playerColition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackGroundClass.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicShapes.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="CharEntity.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MainHeader.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Time.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponEntityClass.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicEnemies.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Spawner.hpp">
-      <Filter>Header</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="source">
-      <UniqueIdentifier>{1b089245-b276-4c56-8808-556fe72dbf40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header">
-      <UniqueIdentifier>{b96272b8-0d44-4d02-adf1-929b3a36f831}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="BackGroundClass.hpp" />
+    <ClInclude Include="BasicEnemies.hpp" />
+    <ClInclude Include="BasicShapes.hpp" />
+    <ClInclude Include="CharEntity.hpp" />
+    <ClInclude Include="Enemy.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Spawner.hpp" />
+    <ClInclude Include="Time.hpp" />
+    <ClInclude Include="MainHeader.hpp" />
+    <ClInclude Include="WeaponEntityClass.hpp" />
+    <ClInclude Include="Player.hpp" />
   </ItemGroup>
 </Project>
