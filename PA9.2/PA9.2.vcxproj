@@ -145,6 +145,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="playerColition.cpp" />
+    <ClCompile Include="projectialColition.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="projectile.hpp" />
     <ClCompile Include="Time.cpp" />
