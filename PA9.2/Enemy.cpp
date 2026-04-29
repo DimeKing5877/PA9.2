@@ -1,7 +1,9 @@
 #include "Enemy.hpp"
 
 Enemy::~Enemy()
-{}
+{
+
+}
 
 // Enemies currently instanlty rotate once their inside the player currently
 void Enemy::update(const sf::Vector2f playerPosition, float deltatime)
