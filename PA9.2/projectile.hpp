@@ -12,11 +12,11 @@ private:
     bool active;
 
 public:
-    Projectile(const int newNumOfSides, const double newRad, const sf::Color& newColor, sf::Vector2f startPos, sf::Vector2f direction, float volocity) : Shape(newNumOfSides, newRad, newColor)
+    Projectile(const int newNumOfSides, const float newRad, const sf::Color& newColor, sf::Vector2f startPos, sf::Vector2f direction, float volocity) : Shape(newNumOfSides, newRad, newColor)
     {
         bullet.setRadius(newRad);
         bullet.setFillColor(newColor);
-        bullet.setOrigin({ 0, 0 });
+        bullet.setOrigin({ newRad, newRad});
         bullet.setPosition(startPos);
 
         float length = sqrt((direction.x * direction.x) + (direction.y * direction.y));
@@ -66,7 +66,7 @@ private:
     std::vector<Projectile> projectiles;
 
 public:
-    void shoot(sf::Vector2f startPos, sf::Vector2f targetPos, float volocity, float deltaTime, int newNumOfSides, double newRad)
+    void shoot(sf::Vector2f startPos, sf::Vector2f targetPos, float volocity, float deltaTime, int newNumOfSides, float newRad)
     {
         sf::Vector2f direction;
 
@@ -106,5 +106,3 @@ public:
         return projectiles;
     }
 };
-
-//example: pewpew.shoot({ 300,300 }, { 800, 800 }, 30, time.getDeltaTime(), 1, 10);

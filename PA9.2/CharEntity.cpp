@@ -57,3 +57,4 @@ bool CharEntity::checkHit(const sf::FloatRect& otherBox){
 
 
 
+
