@@ -5,6 +5,7 @@ weaponEntityClass::weaponEntityClass(const sf::Color newColor, float x_coordinat
 	this->x_coordinate = x_coordinate;
 	this->y_coordinate = y_coordinate;
 	this->objectColor = newColor;
+	this->weaponDamage = 3;
 }
 
 void weaponEntityClass::setColor(const sf::Color newColor)
