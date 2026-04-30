@@ -63,7 +63,8 @@ private:
 
 
 	//hit Detection
-	void playerIsDamaged();
-	void damagedAnEnemy();
+	void DamageCheck();
+	void playerIsDamaged(Enemy& enemy);
+	void damageFromWeapon(Enemy& enemy, weaponEntityClass& weapon);
 
 };

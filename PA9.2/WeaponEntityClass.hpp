@@ -37,9 +37,15 @@ public:
 		this->setNoseCoordinate();
 	}
 
-	WeaponClass projectile;
+	WeaponClass& getProjectile() {
+		return projectile;
+	}
 
 protected:
+
+	WeaponClass projectile;
+
+
 	//basic weapon that is latter shaped in chiled class
 	sf::ConvexShape weapon;
 	//projectile class gose here, but I have not implemented it yet. 
