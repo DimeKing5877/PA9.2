@@ -99,6 +99,7 @@ void Player::draw(sf::RenderWindow*& window){
     }
     window->draw(this->shape);
 }
+
 void Player::setWeaponsPosition(){
     mainWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
     secondWeapon.setObjectPosition(shape.getPosition().x, shape.getPosition().y);
@@ -212,3 +213,31 @@ void Player::resetInvincalbeDuration(){
 void Player::invincableCountDown(const float& deltaTime){
     invincalbeDuration = invincalbeDuration - deltaTime;
 }
+
+
+
+
+basicWeapon& Player::getMainWeapon()
+{
+    return mainWeapon;
+}
+doubleWeapon& Player::getSecondWeapon()
+{
+    return secondWeapon;
+}
+cannonWeapon& Player::getThirdWeapon()
+{
+    return thirdWeapon;
+}
+plusWeapon& Player::getFourthWeapon()
+{
+    return fourthWeapon;
+}
+lazzerWeapon& Player::getFifthWeapon()
+{
+    return fifthWeapon;
+}
+
+
+
+

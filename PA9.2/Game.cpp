@@ -97,13 +97,9 @@ void Game::update()
     //tests pewpew.update();//works
 
     //hit detection
-    if (player.vulnrable()) {//player is vulnrable to damage
-        this->playerIsDamaged();
-    }
-    if(!player.isDead()) {
-        
-    }
-    this->damagedAnEnemy();
+    DamageCheck();
+   
+    
 
 }
 
@@ -143,39 +139,43 @@ bool Game::isRunning() const
     return window->isOpen();
 }
 
-void Game::playerIsDamaged(){
+void Game::DamageCheck(){
     for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
-        if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
-			player.updateHealth(1);// enemy Damage is equal to 1 for now
-
-            if (player.isDead()) {
-                window->close();
-            }
-            else {
-                player.setVulnrabile(false);
-            }
-            enemy.updateHealth(player.getBodyDamage()+2);
-            if (enemy.isDead()) {//enemy is dead
-                enemy.setMoveSpeed(0);//need to change to deleting enemy
-                
-            }
+        if (player.vulnrable()) {//player is vulnrable to damage
+            playerIsDamaged(enemy);
         }
+        damageFromWeapon(enemy, player.getMainWeapon());
+        damageFromWeapon(enemy, player.getSecondWeapon());
+        damageFromWeapon(enemy, player.getThirdWeapon());
+        damageFromWeapon(enemy, player.getFourthWeapon());
+        damageFromWeapon(enemy, player.getFifthWeapon());
     }
 }
 
-void Game::damagedAnEnemy(){
-    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
-        for (Projectile& shot : this->player.mainWeapon.projectile.getProjectiles()) {
-            if (enemy.checkHit(shot.getBounds())) {
-                enemy.updateHealth(1);
-                if (enemy.isDead()) {//enemy is dead
-                    enemy.setMoveSpeed(0);//need to change to deleting enemy
-                   
-                }
-                //delete& shot;
-                
+void Game::playerIsDamaged(Enemy& enemy){
+    if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
+        player.updateHealth(1);// enemy Damage is equal to 1 for now
+        if (player.isDead()) {
+            window->close();
+        }
+        else {
+            player.setVulnrabile(false);
+        }
+        enemy.updateHealth(player.getBodyDamage() + 2);
+        if (enemy.isDead()) {//enemy is dead
+            enemy.setMoveSpeed(0);//need to change to deleting enemy
+
+        }
+    }
+}
+void Game::damageFromWeapon(Enemy& enemy, weaponEntityClass& weapon){
+    for (Projectile& shot : weapon.getProjectile().getProjectiles()) {
+        if (enemy.checkHit(shot.getBounds())) {
+            enemy.updateHealth(1);
+            if (enemy.isDead()) {//enemy is dead
+                enemy.setMoveSpeed(0);//need to change to deleting enemy
             }
-            
+            //delete& shot;   
         }
     }
 }
