@@ -139,19 +139,24 @@ bool Game::isRunning() const
     return window->isOpen();
 }
 
-void Game::DamageCheck(){
+void Game::DamageCheck() {
+    int enemyIndex = 0;
     for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
         if (player.vulnrable()) {//player is vulnrable to damage
             playerIsDamaged(enemy);
         }
-        damageFromWeapon(enemy, player.getMainWeapon());
-        damageFromWeapon(enemy, player.getSecondWeapon());
-        damageFromWeapon(enemy, player.getThirdWeapon());
-        damageFromWeapon(enemy, player.getFourthWeapon());
-        damageFromWeapon(enemy, player.getFifthWeapon());
+        if (!enemy.isDead()) {damageFromWeapon(enemy, player.getMainWeapon());}
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getSecondWeapon()); }
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getThirdWeapon()); }
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFourthWeapon()); }
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFifthWeapon()); }
+        if (enemy.isDead()) {//enemy is dead, enemy.isDead()
+            enemySpawner.getAliveEnemies().erase(enemySpawner.getAliveEnemies().begin() + enemyIndex);
+            enemyIndex -= 1;
+        }
+        enemyIndex += 1;
     }
 }
-
 void Game::playerIsDamaged(Enemy& enemy){
     if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
         player.updateHealth(1);// enemy Damage is equal to 1 for now
@@ -161,21 +166,19 @@ void Game::playerIsDamaged(Enemy& enemy){
         else {
             player.setVulnrabile(false);
         }
-        enemy.updateHealth(player.getBodyDamage() + 2);
-        if (enemy.isDead()) {//enemy is dead
-            enemy.setMoveSpeed(0);//need to change to deleting enemy
-
-        }
+        enemy.updateHealth(player.getBodyDamage());
     }
 }
 void Game::damageFromWeapon(Enemy& enemy, weaponEntityClass& weapon){
+    int projectileIndex = 0;
     for (Projectile& shot : weapon.getProjectile().getProjectiles()) {
         if (enemy.checkHit(shot.getBounds())) {
-            enemy.updateHealth(1);
-            if (enemy.isDead()) {//enemy is dead
-                enemy.setMoveSpeed(0);//need to change to deleting enemy
-            }
-            //delete& shot;   
+            enemy.updateHealth(weapon.getWeaponDamage());
+            //delete& shot;
+            weapon.getProjectile().getProjectiles().erase(weapon.getProjectile().getProjectiles().begin() + projectileIndex);
+        }
+        else {
+            projectileIndex += 1;
         }
     }
 }

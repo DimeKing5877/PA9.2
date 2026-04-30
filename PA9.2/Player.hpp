@@ -20,7 +20,7 @@ public:
 		weaponSlot = 1;
 		setWeaponsPosition();
 		setWeaponSize();
-		bodyDamage = 1;
+		bodyDamage = 3;
 		invincalbeDuration = 2;
 
 
