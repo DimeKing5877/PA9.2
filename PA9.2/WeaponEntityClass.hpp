@@ -60,18 +60,19 @@ public:
 	cannonWeapon(const float height = 20, const float bottomWidth = 20, const float topWidth = 10, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({0, height/2});
-		this->weapon.setPointCount(4);
+		this->weapon.setPointCount(5);
 		this->weapon.setPoint(0, { topWidth/2, height/2 });
-		this->weapon.setPoint(1, {( - topWidth / 2), height / 2});
-		this->weapon.setPoint(2, {-bottomWidth/2, -height / 2 });
-		this->weapon.setPoint(3, { bottomWidth / 2, -height / 2 });
+		this->weapon.setPoint(1, { 0, height / 2 });
+		this->weapon.setPoint(2, {( - topWidth / 2), height / 2});
+		this->weapon.setPoint(3, {-bottomWidth/2, -height / 2 });
+		this->weapon.setPoint(4, { bottomWidth / 2, -height / 2 });
 		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
 	}
 	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.
 	void setNoseCoordinate() override {
-		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y});
+		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(1).x, weapon.getPoint(1).y});
 	}
 
 	//getters
@@ -90,28 +91,32 @@ public:
 	//constructor
 	plusWeapon(const float barrolWidth = 10, const float barrolHight = 20, const sf::Color newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate) {
 		this->weapon.setOrigin({ 0,0 });
-		this->weapon.setPointCount(12);
-		this->weapon.setPoint(0, { (barrolWidth / 2), barrolHight });
-		this->weapon.setPoint(1, { (barrolWidth / 2), (barrolWidth / 2) });
-		this->weapon.setPoint(2, { barrolHight, (barrolWidth / 2) });
-		this->weapon.setPoint(3, { barrolHight, -(barrolWidth / 2) });
-		this->weapon.setPoint(4, { (barrolWidth / 2), -(barrolWidth / 2) });
-		this->weapon.setPoint(5, { (barrolWidth / 2), -(barrolHight) });
-		this->weapon.setPoint(6, { -(barrolWidth / 2), -(barrolHight) });
-		this->weapon.setPoint(7, { -(barrolWidth / 2), -(barrolWidth / 2) });
-		this->weapon.setPoint(8, { -(barrolHight), -(barrolWidth / 2) });
-		this->weapon.setPoint(9, { -(barrolHight), (barrolWidth / 2) });
-		this->weapon.setPoint(10, { -(barrolWidth / 2), (barrolWidth / 2) });
-		this->weapon.setPoint(11, { -(barrolWidth / 2), (barrolHight) });
+		this->weapon.setPointCount(16);
+		this->weapon.setPoint(0, { (0), barrolHight });
+		this->weapon.setPoint(1, { (barrolWidth / 2), barrolHight });
+		this->weapon.setPoint(2, { (barrolWidth / 2), (barrolWidth / 2) });
+		this->weapon.setPoint(3, { barrolHight, (barrolWidth / 2) });
+		this->weapon.setPoint(4, { barrolHight, 0 });
+		this->weapon.setPoint(5, { barrolHight, -(barrolWidth / 2) });
+		this->weapon.setPoint(6, { (barrolWidth / 2), -(barrolWidth / 2) });
+		this->weapon.setPoint(7, { (barrolWidth / 2), -(barrolHight) });
+		this->weapon.setPoint(8, { 0, -(barrolHight) });
+		this->weapon.setPoint(9, { -(barrolWidth / 2), -(barrolHight) });
+		this->weapon.setPoint(10, { -(barrolWidth / 2), -(barrolWidth / 2) });
+		this->weapon.setPoint(11, { -(barrolHight), -(barrolWidth / 2) });
+		this->weapon.setPoint(12, { -(barrolHight), 0 });
+		this->weapon.setPoint(13, { -(barrolHight), (barrolWidth / 2) });
+		this->weapon.setPoint(14, { -(barrolWidth / 2), (barrolWidth / 2) });
+		this->weapon.setPoint(15, { -(barrolWidth / 2), (barrolHight) });
 		this->weapon.setPosition({ x_coordinate, y_coordinate });
 		this->setNoseCoordinate();
 	}
 
 	void setNoseCoordinate() override {
 		this->Nose1 = this->weapon.getTransform().transformPoint({this->weapon.getPoint(0).x, this->weapon.getPoint(0).y}); //bottem
-		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(3).x, this->weapon.getPoint(3).y }); //right
-		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(6).x, this->weapon.getPoint(6).y }); //top
-		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(9).x, this->weapon.getPoint(9).y }); //left
+		this->Nose2 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(4).x, this->weapon.getPoint(4).y }); //right
+		this->Nose3 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(8).x, this->weapon.getPoint(8).y }); //top
+		this->Nose4 = this->weapon.getTransform().transformPoint({ this->weapon.getPoint(12).x, this->weapon.getPoint(12).y }); //left
 	}
 
 	//getters:
@@ -173,18 +178,19 @@ public:
 	basicWeapon(const float height = -30, const float Width = 15, const sf::Color& newColor = sf::Color::Black, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({ 0, 0 });
-		this->weapon.setPointCount(4);
+		this->weapon.setPointCount(5);
 		this->weapon.setPoint(0, { Width / 2, height });
-		this->weapon.setPoint(1, { (-Width / 2), height});
-		this->weapon.setPoint(2, { -Width / 2, 0});
-		this->weapon.setPoint(3, { Width / 2, 0});
+		this->weapon.setPoint(1, { 0, height });
+		this->weapon.setPoint(2, { (-Width / 2), height});
+		this->weapon.setPoint(3, { -Width / 2, 0});
+		this->weapon.setPoint(4, { Width / 2, 0});
 		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
 	}
 	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.
 	void setNoseCoordinate() override {
-		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
+		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(1).x, weapon.getPoint(1).y });
 	}
 	//getter
 	sf::Vector2f getNose() {
@@ -199,11 +205,12 @@ class lazzerWeapon : public weaponEntityClass {
     	lazzerWeapon(const float height = 20, const float bottomWidth = 10, const float topWidth = 20, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
 	{
 		this->weapon.setOrigin({ 0, height / 2 });
-		this->weapon.setPointCount(4);
+		this->weapon.setPointCount(5);
 		this->weapon.setPoint(0, { topWidth / 2, height / 2 });
-		this->weapon.setPoint(1, { (-topWidth / 2), height / 2 });
-		this->weapon.setPoint(2, { -bottomWidth / 2, -height / 2 });
-		this->weapon.setPoint(3, { bottomWidth / 2, -height / 2 });
+		this->weapon.setPoint(1, { 0, height / 2 });
+		this->weapon.setPoint(2, { (-topWidth / 2), height / 2 });
+		this->weapon.setPoint(3, { -bottomWidth / 2, -height / 2 });
+		this->weapon.setPoint(4, { bottomWidth / 2, -height / 2 });
     this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
 	}
@@ -211,7 +218,7 @@ class lazzerWeapon : public weaponEntityClass {
   //sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.
 	void setNoseCoordinate() override {
-		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(0).x, weapon.getPoint(0).y });
+		this->Nose = this->weapon.getTransform().transformPoint({ weapon.getPoint(1).x, weapon.getPoint(1).y });
 	}
 	//getter
 	sf::Vector2f getNose() {
