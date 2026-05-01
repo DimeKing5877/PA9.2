@@ -50,12 +50,10 @@ VIDEO DEMO LINK
 -----------------------------------------
 AI DISCLOSURE
 -----------------------------------------
-- DOCUMENTATION: This README file was formatted with AI assistance.
+DOCUMENTATION: This README file was formatted with AI assistance.
 
-- SOURCE CODE: AI assistance was utilized for the implementation of 
-  the projectile class. All other classes, game logic, and SFML 
-  integration were authored by the project team.
+SOURCE CODE: AI assistance was utilized for the implementation of the projectile class. All other classes, game logic, and SFML integration were authored by the project team.
 
-- HUMAN INTEGRATION: The team reviewed, tested, and integrated the 
-  AI-assisted code to ensure it functioned correctly within our 
-  custom game engine architecture.
+TESTING & QA: AI was utilized to develop comprehensive test cases and assist in identifying and resolving logic errors within the codebase.
+
+HUMAN INTEGRATION: The team reviewed, verified, and integrated all AI-generated suggestions and test suites to ensure they aligned with our custom game engine architecture and performance standards.
