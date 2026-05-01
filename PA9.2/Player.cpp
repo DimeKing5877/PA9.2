@@ -132,7 +132,7 @@ void Player::shootGun(const sf::Vector2f& mousePosition, const float& deltatime)
                 secondWeapon.shoot(secondWeapon.getNose2(), mousePosition, deltatime, 5, 5, getMoveSpeed() + 200);
                 evenShot = 0;
             }
-            secondWeaponRest = WEAPON_SPEED2;
+            secondWeaponRest = WEAPON_SPEED2/2;
         }
         else if (weaponSlot == 3 && thirdWeaponRest <= 0) {
             //std::cout << "cannon 3" << std::endl;
