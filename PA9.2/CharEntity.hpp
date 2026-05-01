@@ -10,6 +10,7 @@ public:
 	{
 		moveSpeed = BASE_SPEED * newMoveSpeed;//multiplyer of the base speed
 		health = newHealth;
+		bodyDamage = 1;
 	}
 	virtual ~CharEntity();
 
@@ -28,12 +29,14 @@ public:
 	void dies();//precodition: the entity is Dead.
 
 	bool checkHit(const sf::FloatRect& otherBox);
-
-
+	
+	int getBodyDamage();
+	void setBodyDamage(const int& newBodyDamage);
 
 protected:
 	double moveSpeed;//the speed the entitys move
 	int health;//the health of the entitys
+	int bodyDamage;//bady damage of charecter entitys
 
 private:
 };

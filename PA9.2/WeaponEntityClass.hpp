@@ -40,9 +40,12 @@ public:
 	WeaponClass& getProjectile() {
 		return projectile;
 	}
+	int getWeaponDamage(){
+		return weaponDamage;
+	}
 
 protected:
-
+	int weaponDamage;
 	WeaponClass projectile;
 
 
@@ -74,6 +77,7 @@ public:
 		this->weapon.setPoint(4, { bottomWidth / 2, -height / 2 });
 		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
+		this->weaponDamage = 10;
 	}
 	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.
@@ -116,6 +120,7 @@ public:
 		this->weapon.setPoint(15, { -(barrolWidth / 2), (barrolHight) });
 		this->weapon.setPosition({ x_coordinate, y_coordinate });
 		this->setNoseCoordinate();
+		this->weaponDamage = 3;
 	}
 
 	void setNoseCoordinate() override {
@@ -159,6 +164,7 @@ public:
 		this->weapon.setPoint(7, { (barrolWidth + gap), 0});
 		this->weapon.setPosition({ x_coordinate, y_coordinate });
 		this->setNoseCoordinate();
+		this->weaponDamage = 1;
 	}
 
 	void setNoseCoordinate() override {
@@ -192,6 +198,7 @@ public:
 		this->weapon.setPoint(4, { Width / 2, 0});
 		this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
 		this->setNoseCoordinate();
+		this->weaponDamage = 3;
 	}
 	//sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.
@@ -209,17 +216,19 @@ class lazzerWeapon : public weaponEntityClass {
 	  sf::Vector2f Nose; //cordnent were the projectile spawn
   public:
     	lazzerWeapon(const float height = 20, const float bottomWidth = 10, const float topWidth = 20, const sf::Color& newColor = sf::Color::Blue, float x_coordinate = 300, float y_coordinate = 300) : weaponEntityClass(newColor, x_coordinate, y_coordinate)
-	{
-		this->weapon.setOrigin({ 0, height / 2 });
-		this->weapon.setPointCount(5);
-		this->weapon.setPoint(0, { topWidth / 2, height / 2 });
-		this->weapon.setPoint(1, { 0, height / 2 });
-		this->weapon.setPoint(2, { (-topWidth / 2), height / 2 });
-		this->weapon.setPoint(3, { -bottomWidth / 2, -height / 2 });
-		this->weapon.setPoint(4, { bottomWidth / 2, -height / 2 });
-    this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
-		this->setNoseCoordinate();
-	}
+		{
+			this->weapon.setOrigin({ 0, height / 2 });
+			this->weapon.setPointCount(5);
+			this->weapon.setPoint(0, { topWidth / 2, height / 2 });
+			this->weapon.setPoint(1, { 0, height / 2 });
+			this->weapon.setPoint(2, { (-topWidth / 2), height / 2 });
+			this->weapon.setPoint(3, { -bottomWidth / 2, -height / 2 });
+			this->weapon.setPoint(4, { bottomWidth / 2, -height / 2 });
+			this->weapon.setPosition({ this->x_coordinate, this->y_coordinate });
+			this->setNoseCoordinate();
+
+			this->weaponDamage = 3;
+		}
         
   //sets the nose coordinate of the cannon, which is the point where the projectile will spawn, which is the top point of the cannon.
 	//posistion is subject to change.

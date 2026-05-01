@@ -1,21 +1,59 @@
-Contributors: Dennis Carpenter, Derrek Carpenter, Fox Filer, Nahom Tadesse
-Lab Section: 1
+=========================================
+      PROJECT: TANKS ALOT (PA9)
+=========================================
 
-PA9: Project: Game: Tanks Alot
+LAB SECTION: 1
 
-Description: A lone Tank against an army of different shapes and colors. The longer the tank lives the more force he will face. Will the lone tank be able to face off against the horde or succumb to the brute force of the other shapes?
+CONTRIBUTORS: 
+- Dennis Carpenter
+- Derrek Carpenter
+- Fox Filer
+- Nahom Tadesse
 
-How to Play:
-Controls
-  -Use WASD to move 
-  -Use mouse to point
-  -Left click or space to shoot
-  -Cycle throguh 5 different weapons by pressing 1, 2, 3, 4, and 5
-Instructions
+-----------------------------------------
+DESCRIPTION
+-----------------------------------------
+A lone Tank against an army of different shapes and colors. 
+The longer the tank lives, the more force he will face. 
+Will the lone tank be able to face off against the horde 
+or succumb to the brute force of the other shapes?
 
-  
+-----------------------------------------
+HOW TO PLAY
+-----------------------------------------
+CONTROLS:
+- Use WASD to move 
+- Use mouse to point
+- Left click or Space to shoot
+- Cycle through 5 different weapons by pressing 1, 2, 3, 4, and 5
 
-Objective:
-  -Survive for as long as possible 
+OBJECTIVE:
+- Survive for as long as possible.
 
-Video Demo Link:
+-----------------------------------------
+TECHNICAL DETAILS
+-----------------------------------------
+PREREQUISITES:
+- SFML 3.0+
+- C++17 or higher compiler
+
+INSTALLATION:
+1. Ensure SFML is installed on your system.
+2. Compile using the included Makefile or CMakeLists.txt.
+3. Run the executable 'TanksAlot.exe'.
+
+-----------------------------------------
+VIDEO DEMO LINK
+-----------------------------------------
+[Insert your full URL here]
+
+-----------------------------------------
+AI DISCLOSURE
+-----------------------------------------
+DOCUMENTATION: This README file was formatted with AI assistance.
+
+SOURCE CODE: AI assistance was utilized for the implementation of the projectile class. All other classes, game logic, and SFML integration were authored by the project team.
+
+TESTING & QA: AI was utilized to develop comprehensive test cases and assist in identifying and resolving logic errors within the codebase.
+
+HUMAN INTEGRATION: The team reviewed, verified, and integrated all AI-generated suggestions and test suites to ensure they aligned with our custom game engine architecture and performance standards.

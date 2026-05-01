@@ -11,7 +11,7 @@
 
 class Player : public CharEntity {
 public:
-	Player(const double newMoveSpeed = 1.8, const int newHealth = 5, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
+	Player(const double newMoveSpeed = 1.8, const int newHealth = 10, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
 	: CharEntity(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) 
 	{
 		shape.setOrigin({float(area) , float(area)});
@@ -20,7 +20,7 @@ public:
 		weaponSlot = 1;
 		setWeaponsPosition();
 		setWeaponSize();
-		bodyDamage = 1;
+		bodyDamage = 3;
 		invincalbeDuration = 2;
 
 
@@ -39,7 +39,6 @@ public:
 	//getters
 	bool vulnrable();//true=damage / false=no-damage
 	int getWeaponSlot();//gets the weapon slot the player is on
-	int getBodyDamage();
 	float getInvincalbeDuration();
 
 
@@ -47,15 +46,14 @@ public:
 	void setVulnrabile(const bool& vulnrable);//true=no-damage / false=damage
 	void setWeaponSlot(const int& newWeaponSlot);//changes the weapon being held
 	void setWeaponSlot();//changes the weapon being held
-	void setBodyDamage(const int& newBodyDamage);
 	void resetInvincalbeDuration();
 	void invincableCountDown(const float& deltaTime);
 
 
 	//controls
-	void pointToMouse(const sf::Vector2f& mousePosition);
-	void playerMove(const float& deltatime);
-	void shootGun(const sf::Vector2f& mousePosition, const float& deltatime);
+	void pointToMouse(const sf::Vector2f& mousePosition);//poins player to mouse
+	void playerMove(const float& deltatime);//moves player
+	void shootGun(const sf::Vector2f& mousePosition, const float& deltatime);//shoots equiped weapon
 	
 	
 	void draw(sf::RenderWindow*& window);//draw, overrides original so it can redraw weapon
@@ -74,8 +72,7 @@ public:
 
 private:
 	bool isVulnrable;//true=damage / false=no-damage
-	int bodyDamage;
-	float invincalbeDuration;
+	float invincalbeDuration;//duration of invulnrability 
 
 	int weaponSlot;//the weapon slot the players is on
 	basicWeapon	mainWeapon;//the main weapon
@@ -86,21 +83,17 @@ private:
 	
 
 	int evenShot;
-	float mainWeaponRest;
-	float secondWeaponRest;
-	float thirdWeaponRest;
-	float fourthWeaponRest;
-	float fifthWeaponRest;
-	void allWeaponCoolDowns(float deltaTime);
-	float lazerDeration;
+	float mainWeaponRest;//main weapon cooldown
+	float secondWeaponRest;//second weapon cooldown
+	float thirdWeaponRest;//third weapon cooldown
+	float fourthWeaponRest;//fourth weapon cooldown
+	float fifthWeaponRest;//fifth weapon cooldown
+	void allWeaponCoolDowns(float deltaTime);//counts down all cooldowns
+	float lazerDeration;//the duration the lazer fires for
 
-	void setWeaponsPosition();
-	void setWeaponSize();
-	void rotateWeapons(sf::Angle rotation);
-
-
-	//list of all projectiles shot
-
+	void setWeaponsPosition();//moves weapons with player
+	void setWeaponSize();//sets the seze to fit with player
+	void rotateWeapons(sf::Angle rotation);//rotates weapons with player
 };
 
 

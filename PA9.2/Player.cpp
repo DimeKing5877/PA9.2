@@ -18,33 +18,22 @@ void Player::setWeaponSlot(const int& newWeaponSlot){
     weaponSlot = newWeaponSlot;
 }
 void Player::setWeaponSlot(){
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1)) {//press 1 for main
         weaponSlot = 1;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num2)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num2)) {//press 2 for second
         weaponSlot = 2;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num3)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num3)) {//press 3 for third
         weaponSlot = 3;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num4)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num4)) {//press 4 for forth
         weaponSlot = 4;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num5)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num5)) {//press 5 for fifth
         weaponSlot = 5;
     }
 }
-
-
-int Player::getBodyDamage(){
-    return bodyDamage;
-}
-void Player::setBodyDamage(const int& newBodyDamage){
-    bodyDamage = newBodyDamage;
-}
-
-
-
 
 
 void Player::pointToMouse(const sf::Vector2f& mousePosition)
@@ -81,7 +70,7 @@ void Player::playerMove(const float& deltatime)
 
 
 void Player::draw(sf::RenderWindow*& window){
-   
+   //only draws the weapon that is curently slected 
     if (weaponSlot == 1) {
         mainWeapon.draw(window);
     }
@@ -143,7 +132,7 @@ void Player::shootGun(const sf::Vector2f& mousePosition, const float& deltatime)
                 secondWeapon.shoot(secondWeapon.getNose2(), mousePosition, deltatime, 5, 5, getMoveSpeed() + 200);
                 evenShot = 0;
             }
-            secondWeaponRest = WEAPON_SPEED2;
+            secondWeaponRest = WEAPON_SPEED2/2;
         }
         else if (weaponSlot == 3 && thirdWeaponRest <= 0) {
             //std::cout << "cannon 3" << std::endl;

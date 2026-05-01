@@ -1,4 +1,4 @@
-
+#pragma once
 #include "MainHeader.hpp"
 #include "BasicShapes.hpp"
 #include <vector>
