@@ -4,7 +4,7 @@ Spawner::Spawner()
 {
 	maxTierReached = false;
 	spawnTimer = 0.f;
-	spawnTimerMax = 5.f;
+	spawnTimerMax = 2.f;
 	smallestTimeSpawnLimit = 1.f;
 	currentEnemyTier = 1;
 	enemiesTillNextTier = 10;
