@@ -11,7 +11,7 @@
 
 class Player : public CharEntity {
 public:
-	Player(const double newMoveSpeed = 1.8, const int newHealth = 6, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
+	Player(const double newMoveSpeed = 1.8, const int newHealth = 10, const int newNumOfSides = 1, const double newArea = 20, const sf::Color& newColor = sf::Color::Green)
 	: CharEntity(newMoveSpeed, newHealth, newNumOfSides, newArea, newColor) 
 	{
 		shape.setOrigin({float(area) , float(area)});
