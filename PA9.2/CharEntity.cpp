@@ -55,6 +55,10 @@ bool CharEntity::checkHit(const sf::FloatRect& otherBox){
 }
 
 
+int CharEntity::getBodyDamage() {
+	return bodyDamage;
+}
 
-
-
+void CharEntity::setBodyDamage(const int& newBodyDamage) {
+	bodyDamage = newBodyDamage;
+}

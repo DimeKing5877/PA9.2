@@ -61,28 +61,27 @@ void Game::update()
     time.nextDeltaTime();
 	// Game Logic Go Here
 
-    if (!player.vulnrable() && (player.getInvincalbeDuration() == 2)) {
+
+    //player invincability logic
+    if (!player.vulnrable() && (player.getInvincalbeDuration() == 2)) {//when stat of invincability changes color of player to blue
         player.setColor(sf::Color::Blue);
         std::cout << "is Invincable" << std::endl;
     }
     if (!player.vulnrable() && (player.getInvincalbeDuration() <= 0)){//if player is invulnrable and timer is zero; reset timer and set vulnrable
         player.setVulnrabile(true);
-        player.resetInvincalbeDuration();
-        player.setColor(sf::Color::Green);
+        player.resetInvincalbeDuration();//resets duration of invicability for next time
+        player.setColor(sf::Color::Green);//sets color back
     }
     if (!player.vulnrable() && (player.getInvincalbeDuration() > 0)) {//if player is invulnrable and timer is not zero; count down timer
         player.invincableCountDown(time.getDeltaTime());
     }
 
     //player updates
-    sf::Vector2i mousePosition = sf::Mouse::getPosition();
-
-
-    sf::Vector2i mousePixel = sf::Mouse::getPosition(*window);
-    sf::Vector2f mouseWorld = window->mapPixelToCoords(mousePixel);
-    player.pointToMouse(mouseWorld);
-    player.playerMove(time.getDeltaTime());
-    player.setWeaponSlot();
+    sf::Vector2i mousePixel = sf::Mouse::getPosition(*window);//gits mouse position
+    sf::Vector2f mouseWorld = window->mapPixelToCoords(mousePixel);//maps mouse position to windo condinets
+    player.pointToMouse(mouseWorld);//points player to mouse
+    player.playerMove(time.getDeltaTime());//registers player movment
+    player.setWeaponSlot();//allows for a change in weapons for pla
     player.shootGun(mouseWorld, time.getDeltaTime());
 
 
@@ -94,13 +93,8 @@ void Game::update()
         enemy.update(player.shape.getPosition(), time.getDeltaTime());
     }
 
-    //tests pewpew.update();//works
-
     //hit detection
     DamageCheck();
-   
-    
-
 }
 
 void Game::render()
@@ -141,15 +135,15 @@ bool Game::isRunning() const
 
 void Game::DamageCheck() {
     int enemyIndex = 0;
-    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {
+    for (Enemy& enemy : this->enemySpawner.getAliveEnemies()) {//loops through all enemys
         if (player.vulnrable()) {//player is vulnrable to damage
-            playerIsDamaged(enemy);
+            playerIsDamaged(enemy);//chacks collision with player
         }
-        if (!enemy.isDead()) {damageFromWeapon(enemy, player.getMainWeapon());}
-        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getSecondWeapon()); }
-        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getThirdWeapon()); }
-        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFourthWeapon()); }
-        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFifthWeapon()); }
+        if (!enemy.isDead()) {damageFromWeapon(enemy, player.getMainWeapon());}//checks all main weapon projectiles on enemy if it is not dead
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getSecondWeapon()); }//checks all second weapon projectiles on enemy if it is not dead
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getThirdWeapon()); }//checks all third weapon projectiles on enemy if it is not dead
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFourthWeapon()); }//checks all fourth weapon projectiles on enemy if it is not dead
+        if (!enemy.isDead()) { damageFromWeapon(enemy, player.getFifthWeapon()); }//checks all fifth weapon projectiles on enemy if it is not dead
         if (enemy.isDead()) {//enemy is dead, enemy.isDead()
             enemySpawner.getAliveEnemies().erase(enemySpawner.getAliveEnemies().begin() + enemyIndex);
             enemyIndex -= 1;
@@ -158,23 +152,23 @@ void Game::DamageCheck() {
     }
 }
 void Game::playerIsDamaged(Enemy& enemy){
-    if (player.checkHit(enemy.shape.getGlobalBounds())) {//code for the grunt that exists
-        player.updateHealth(1);// enemy Damage is equal to 1 for now
-        if (player.isDead()) {
-            window->close();
+    if (player.checkHit(enemy.shape.getGlobalBounds())) {//checks for collision with enemy and contitouse if true
+        player.updateHealth(enemy.getBodyDamage());//updates player heath with enemy damage
+        if (player.isDead()) {//checks if player is dead
+            window->close();//if dead closes window
         }
         else {
-            player.setVulnrabile(false);
+            player.setVulnrabile(false);//if not dead gain invicability 
         }
-        enemy.updateHealth(player.getBodyDamage());
+        enemy.updateHealth(player.getBodyDamage());//updates enemy health with player damage
     }
 }
 void Game::damageFromWeapon(Enemy& enemy, weaponEntityClass& weapon){
     int projectileIndex = 0;
-    for (Projectile& shot : weapon.getProjectile().getProjectiles()) {
-        if (enemy.checkHit(shot.getBounds())) {
-            enemy.updateHealth(weapon.getWeaponDamage());
-            //delete& shot;
+    for (Projectile& shot : weapon.getProjectile().getProjectiles()) {//loops through all projectiles of a set weapon
+        if (enemy.checkHit(shot.getBounds())) {//if enemy is hit
+            enemy.updateHealth(weapon.getWeaponDamage());//update enemys health
+            //delete shot;
             weapon.getProjectile().getProjectiles().erase(weapon.getProjectile().getProjectiles().begin() + projectileIndex);
         }
         else {
