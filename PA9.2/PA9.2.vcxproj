@@ -149,6 +149,7 @@
     <ClCompile Include="projectialColition.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="projectile.hpp" />
+    <ClCompile Include="TestCases.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponEntityClass.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Spawner.hpp" />
+    <ClInclude Include="TestCases.hpp" />
     <ClInclude Include="Time.hpp" />
     <ClInclude Include="MainHeader.hpp" />
     <ClInclude Include="WeaponEntityClass.hpp" />
