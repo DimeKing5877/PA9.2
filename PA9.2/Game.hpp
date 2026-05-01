@@ -40,8 +40,6 @@ private:
 	Player player;//the player
 	Grunt grunt;//generic enemy
 
-	
-	void generateEnemy();//generates an enemy 
 
 	//extra
 	WeaponClass pewpew;

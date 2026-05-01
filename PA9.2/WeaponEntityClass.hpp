@@ -37,11 +37,13 @@ public:
 		this->setNoseCoordinate();
 	}
 
+	WeaponClass projectile;
+
 protected:
 	//basic weapon that is latter shaped in chiled class
 	sf::ConvexShape weapon;
 	//projectile class gose here, but I have not implemented it yet. 
-	WeaponClass projectile;
+	
 
 	float x_coordinate; //spawn point of the weapon.
 	float y_coordinate; //spawn point of the weapon.
