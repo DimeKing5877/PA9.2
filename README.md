@@ -45,7 +45,7 @@ INSTALLATION:
 -----------------------------------------
 VIDEO DEMO LINK
 -----------------------------------------
-[Insert your full URL here]
+[https://www.youtube.com/watch?v=y0XByS2yYWE]
 
 -----------------------------------------
 AI DISCLOSURE
